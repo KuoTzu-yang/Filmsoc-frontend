@@ -1,0 +1,130 @@
+﻿<!--
+  existing bugs / urgent improvemnets :
+    -1. <iframe>'s processing speed on the phone is slow and its displayment sometimes go beyond expection.
+        So I use the alternative method with two simple link. Try to improve the phone(xs) mode to let users can 
+        directly watch in our page.(same in document/magazine/micromagazine)
+        
+
+-->
+
+
+<!-------Jumbotron & Title ------->
+<div class="title">
+  <div class="container">
+    <h1 class="main-title">Publications</h1>
+    <div class="row">
+      <div>
+        <!-- Here is the space for placing sub-titles -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="haze">
+  </div>
+</div>
+
+
+
+<!-------Magazine container ------->
+<div #wrapper class="container" id="wrapper" [class.toggled]="toggled">
+
+  <!-- loading -->
+  <div class="spinner-wrapper" *ngIf="initLoading">
+    <div class="loader"></div>
+  </div>
+
+
+
+  <!--loading completed: left panel-->
+  <div id="sidebar-wrapper" (OnScrollMethod)="nextPage()" ScrollDistance="3" infinite-scroll="InfiniteScroll"
+       [@sidebarAnimation]="" *ngIf="!initLoading">
+
+    <!--left panel : button list-->
+    <div class="button-wrapper">
+      <div class="button-list">
+        <h3>
+          <strong>Catgeory</strong>
+        </h3>
+        <div class="btn-group-vertical" role="group">
+          <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/publication">
+            Magazine
+          </button>
+          <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/podcast">
+            Podcast
+          </button>
+          <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/micro-magazine">
+            MicroMagazine
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--left panel : list-->
+    <div class="magazine-list">
+      <div class="magazine-label" *ngFor="let publication of magazines"
+           (click)="goToMagazine(publication)" [class.selected]="selectedPublication?.id===publication.id"
+           [@ticketLabel]="">
+        <div class="magazine-brief-wrapper" align="center">
+          <div class="magazine-title">
+            <p>
+              <strong>{{publication.title}}</strong>
+            </p>
+          </div>
+          <div class="magazine-picture">
+            <img src="{{publication.cover_url.full_url}}" class="img-rounded " />
+          </div>
+        </div>
+      </div>
+      <div class="scroll-spinner-wrapper" *ngIf="scrollLoading">
+        <loaders-css [loader]="'line-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css>
+      </div>
+    </div>
+  </div>
+
+
+  <!--loading completed: right panel-->
+  <div #contentWrapper id="content-wrapper"
+       [@contentAnimation]="" *ngIf="!initLoading">
+    <div class="row magazine-detail">
+      <div>
+        <button type="button" class="btn btn-default visible-xs visible-sm hidden-md hidden-lg navbar-toggle"
+                (click)="toggle()">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <!-- sm/md/lg mode-->
+        <div class="hidden-xs visable-sm visible-md visible-lg">
+          <br />
+          <h1>{{selectedPublication?.title}}</h1>
+          <br />
+          <br />
+          <iframe [src]="FileURL()" width="600" height="800" frameborder="1"></iframe>
+        </div>
+
+        <!-- xs mode-->
+        <div class="visible-xs hidden-sm hidden-md hidden-lg">
+          <br />
+          <br />
+          <br />
+          <div >
+            <h1>{{selectedPublication?.title}}</h1>
+          </div>
+          <br />
+          <br />
+          <a [href]="FileDownloadURL()" alt="Downland">Download</a>
+          <br />
+          <br />
+          <a [href]="FileURL()" alt="View in new window">View in new window</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- closure of container-->

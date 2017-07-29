@@ -1,0 +1,111 @@
+﻿
+<div class="jumbotronup">
+
+  <div class="container">
+    <h1 class="main-title">VCD/DVD Library</h1>
+
+    <div class="row">
+      <div class="col-sm-3 col-xs-12 ">
+        <p>
+          Over 1500 VCD/DVD/BDs
+        </p>
+      </div>
+      <div class="col-sm-1  hidden-xs">|</div>
+      <div class="col-sm-4 col-xs-12 ">
+        <p>
+          Counter: every weekdays 17:00 - 18:30 near McCafe
+        </p>
+      </div>
+      <div class="col-sm-1  hidden-xs">|</div>
+      <div class="col-sm-3 col-xs-12 ">
+        <p>
+          Purchases 8 new ones every two weeks
+        </p>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+<div class="jumbotron">
+
+  <div class="haze">
+  </div>
+
+</div>
+
+
+<div class="container" id="wrapper" [class.toggled]="toggled">
+  <div id="sidebar-wrapper" [@sidebarAnimation]="">
+    <div class="left-panel">
+      <div class="button-wrapper">
+        <h3>
+          <strong>Mode</strong>
+        </h3>
+        <div class="btn-group-vertical" role="group">
+
+          <button class="library-button btn  btn-lg"
+                  (click)="normal()" [class.active]="listType===LIST_TYPE.NORMAL">
+            Normal
+          </button>
+
+
+          <button class="library-button btn  btn-lg"
+                  (click)="topPopular()" [class.active]="listType===LIST_TYPE.POPULAR">
+            Top Popular
+          </button>
+
+
+          <button class="library-button btn  btn-lg"
+                  (click)="topRanked()" [class.active]="listType===LIST_TYPE.RANKED">
+            Top Ranked
+          </button>
+          
+          <button class="library-button btn  btn-lg"
+                  (click)="BD()" [class.active]="listType===LIST_TYPE.RANKED">
+            BD
+          </button>
+
+          <button class="library-button btn  btn-lg"
+                  (click)="Drive()" [class.active]="listType===LIST_TYPE.RANKED">
+            Drive
+          </button>
+
+      
+
+        </div>
+
+        <button class="lucky-button btn btn-default btn-lg">Shopping Vote</button>
+
+        <button class="lucky-button btn btn-default btn-lg"
+                (click)="luckyRandom()">
+          Lucky Random
+        </button>
+        <div class="search-wrapper">
+          <film-disk-search></film-disk-search>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-wrapper">
+    <div class="content-spinner-wrapper" *ngIf="contentLoading">
+      <!--><loaders-css [loader]="'line-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css>-->
+      <div class="loader"></div>
+    </div>
+    <div class="toggle-wrapper">
+      <button type="button" class="btn btn-default visible-xs visible-sm hidden-md hidden-lg navbar-toggle"
+              (click)="toggle()">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="outlet-wrapper" [style.display]="contentLoading? 'none': 'block'">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

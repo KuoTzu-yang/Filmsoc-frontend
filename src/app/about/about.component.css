@@ -1,0 +1,234 @@
+﻿/*-----------------------Jumbotron & Title------------------------------------------------------------------*/
+.title {
+  position: relative;
+  height: 120px;
+  text-align: center;
+}
+
+  .title .container {
+    padding-top: 15px;
+    position: relative;
+    z-index: 1;
+  }
+
+    .title .container .main-title {
+      color: black;
+    }
+
+
+.jumbotron {
+  position: relative;
+  background-image: url('../assets/about.jpg');
+  position: relative;
+  height: 400px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-origin: border-box;
+  -moz-background-origin: border-box;
+  -o-background-origin: border-box;
+  background-origin: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+  .jumbotron .haze {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0);
+  }
+
+.about-wrapper {
+  height:1100px;
+}
+
+
+
+
+
+/*--------------------list-------------------------*/
+
+ .list-item {
+  margin-bottom: 1em;
+  align-content: center;
+  text-align: center;
+  text-align-last: center;
+  height:225px;
+}
+  .list-item .exco-content {
+    height: 180px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 0px 0px 1px 0px;
+    font-size:10px;
+  }
+
+.list-item .exco-content img {
+  border-style: solid;
+  border-width: 1px;
+}
+
+  .list-item .exco-content .exco-pic {
+    max-height: 175px;
+    max-width: 170px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+
+/*--------------detail--------------------*/
+
+
+
+.exco-detail-pic-space {
+  height: 700px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.exco-detail-pic {
+
+  max-height: 95% ;
+  max-width: 100%;
+  text-align: center;
+  float: left;
+  border-style:solid;
+  border-width:3px;
+  
+  
+}
+
+.exco-detail-content {
+  height: 350px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+
+.exco-detail-desc {
+  height: 150px;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: rgba(128, 128, 128, 0.3);
+  border-style: solid;
+  border-width: 1px;
+}
+
+ .exco-detail-desc .exco-detail-desc-content {
+    text-align: center;
+    padding-top: 55px;
+  }
+
+.intro-top {
+  padding-top:5%;
+  text-align:center;
+ 
+}
+
+  .intro-top .title {
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 80px
+  }
+
+  .intro-top .content {
+    min-height: 160px
+  }
+
+.intro-bottom {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+  .intro-bottom .content {
+    border-left-color: rgba(128, 128, 128, 0.3);
+    border-bottom-color: rgba(128, 128, 128, 0.3);
+    border-top-color: black;
+    border-right-color: rgba(128, 128, 128, 0.3);
+
+    padding: 5%;
+    background-color: rgba(128, 128, 128, 0.3);
+    font-size: 12px;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .intro-bottom .content p{
+    font-size: 14px;
+    font-family:Arial;
+  }
+
+.btn-detail {
+  padding-top:5px;
+}
+
+.modal-body {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+
+
+
+/* ---------------------------loading ----------------------------*/
+.spinner-wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+
+.loader {
+  left: 50%;
+  top: 50%;
+  margin: -60px 0 0 -60px;
+  border: 16px solid #808080;
+  border-radius: 50%;
+  border-top: 16px solid #FFFFFF;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  text-align: center;
+  background-position: center center;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*------------patch---------------*/
+
+p, h5, h4, h3, h2, h1 {
+  font-family: "Yu Gothic", SimHei;
+}

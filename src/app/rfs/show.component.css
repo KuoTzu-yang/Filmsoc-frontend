@@ -1,0 +1,244 @@
+﻿.jumbotron {
+  position: relative;
+  background-image: url('../assets/NEW2.jpg');
+  position: relative;
+  height: 400px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-origin: border-box;
+  -moz-background-origin: border-box;
+  -o-background-origin: border-box;
+  background-origin: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.jumbotron :hover{
+  position: relative;
+  background-image: url('../assets/rfs_banner.jpg');
+  position: relative;
+  height: 400px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-origin: border-box;
+  -moz-background-origin: border-box;
+  -o-background-origin: border-box;
+  background-origin: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+  .jumbotron .haze {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0);
+  }
+
+.jumbotronup {
+  position: relative;
+  /*background-image: url('../assets/rfs_banner.jpg');*/
+  
+  height: 120px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-origin: border-box;
+  -moz-background-origin: border-box;
+  -o-background-origin: border-box;
+  background-origin: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+  .jumbotronup .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .jumbotronup .container .main-title {
+     color: black;
+  }
+
+.wrapper {
+  min-height: 1000px;
+  position: relative;
+}
+
+
+
+
+.show-cover img {
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  border-style:solid;
+  border-width:2px;
+}
+
+.show-cover {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  height: 300px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.show-wrapper {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.show-info dl {
+  margin-bottom: 5px;
+}
+
+  .show-info dl dt {
+    width: 20%;
+  }
+
+  .show-info dl dd {
+    margin-left: 25%;
+  }
+
+.show-info .show-plot {
+  display: none;
+  overflow-y: auto;
+  margin-bottom: 10px;
+ 
+}
+
+
+
+.vote-wrapper .votes {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.modal-body {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+@media (min-width:768px) {
+  .show-info .show-plot {
+    display: block;
+    max-height: 300px;
+  }
+}
+
+@media (min-width:992px) {
+  .show-cover {
+    height: 400px;
+  }
+
+    .show-cover > img {
+      height: 100%;
+    }
+}
+
+@media (min-width:1200px) {
+  .show-cover {
+    height: 500px;
+  }
+
+    .show-cover > img {
+      height: 100%;
+    }
+
+  .show-info .show-plot {
+    max-height: 500px;
+    padding-top: 1em;
+    
+  }
+
+  .show-info .desc-wrapper {
+    height: 160px;
+    
+  }
+
+}
+
+
+
+/* the styles below are just for the purpose of testing*/
+.spinner-wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.loader {
+  left: 50%;
+  top: 50%;
+  margin: -60px 0 0 -60px;
+  border: 16px solid #808080;
+  border-radius: 50%;
+  border-top: 16px solid #FFFFFF;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  text-align: center;
+  background-position: center center;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.show-title {
+  text-align: center;
+  height: 70px;
+}
+
+p, h4, h3 ,h1{
+  font-family: "Yu Gothic", SimHei;
+}

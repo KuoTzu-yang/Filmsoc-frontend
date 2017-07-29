@@ -1,0 +1,39 @@
+
+update 2017/06/28
+(not sure: 3,4,5)
+
+-1. identify the root module and root component first.
+    
+	For example,
+    <film-app> from app.component.ts
+	AppModule form app.module.ts
+
+-2. appmodule has no access to read the source of the folder "src" 
+
+update 2017/06/29
+
+     Q2. Why sometimes the website can not
+     display as your expectation?
+     A2. Be aware of the spatial allocation.
+         Try to avoid the confliction of the 
+         display area
+
+-3. It seems that one web can not exist two or more navigation bars, it will case unexpected errors.
+    (not sure about it and I think there are some ways to solve this problem)
+
+-4. Be aware of the spatial allocation. Try to avoid the confliction of the display area.
+    Otherwise, when you utilize some directives that will rearrange the spatial distribution of the 
+	template, it will cause abundant unexpected errors. It will be a frustrating nightmare for 
+	the programmers.
+
+-5. @ is about single direction binding
+
+update 2017/06/30
+
+-6. Except the AppComponent template, other component's template which may later loaded inside the AppComponent should
+    use at least "ngOnInit"
+
+update 2017/07/04
+
+-7. SimpleDisk is used for normal log/history/borrow_record... 
+    Disk is used for display.

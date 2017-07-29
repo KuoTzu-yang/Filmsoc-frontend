@@ -1,0 +1,136 @@
+﻿<!-- 
+  existing bugs / urgent improvemnets :
+    -1. <audio> is unable to process the file successfully on phones.
+        Try to find some handy api to deal with this problem.
+
+    
+
+-->
+
+
+<!-------Jumbotron & Title ------->
+
+<div class="title">
+  <div class="container">
+    <h1 class="main-title">Publications</h1>
+    <div class="row">
+      <div>
+        <!-- Here is the space for placing sub-titles -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="jumbotron">
+  <div class="haze">
+  </div>
+</div>
+
+
+
+<!-------Podcast container ------->
+<div #wrapper class="container" id="wrapper" [class.toggled]="toggled">
+
+  <!-- still loading -->
+  <div class="spinner-wrapper" *ngIf="initLoading">
+    <div class="loader"></div>
+  </div>
+
+  <!--loading completed: left panel-->
+  <div id="sidebar-wrapper" (OnScrollMethod)="nextPage()" ScrollDistance="3" infinite-scroll="InfiniteScroll"
+       [@sidebarAnimation]="" *ngIf="!initLoading">
+
+    <!--left panel : button list-->
+    <div class="button-wrapper">
+      <div class="button-list">
+        <h3>
+          <strong>Catgeory</strong>
+        </h3>
+        <div class="btn-group-vertical" role="group">
+          <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/publication">
+            Magazine
+          </button>
+          <button class="library-button btn btn-lg" routerLinkActive="active" routerLink="/podcast">
+            Podcast
+          </button>
+          <button class="library-button btn btn-lg" routerLinkActive="active" routerLink="/micro-magazine">
+            MicroMagazine
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!--left panel : list-->
+    <div class="podcast-list">
+      <div class="podcast-label" *ngFor="let publication of podcasts"
+           (click)="goToPodcast(publication)" [class.selected]="selectedPublication?.id===publication.id"
+           [@ticketLabel]="">
+        <div class="podcast-brief-wrapper" align="center">
+          <div class="podcast-title">
+            <p>
+              <strong>{{publication.title}}</strong>
+            </p>
+          </div>
+          <div class="podcast-picture">
+            <img src="{{publication.cover_url.full_url}}" class="img-rounded " />
+          </div>
+        </div>
+      </div>
+      <div class="scroll-spinner-wrapper" *ngIf="scrollLoading">
+        <loaders-css [loader]="'line-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css>
+      </div>
+    </div>
+  </div>
+
+
+  <!--loading completed: right panel-->
+  <div #contentWrapper id="content-wrapper"
+       [@contentAnimation]="" *ngIf="!initLoading">
+    <div class="row podcast-detail">
+      <div>
+        <button type="button" class="btn btn-default visible-xs visible-sm hidden-md hidden-lg navbar-toggle"
+                (click)="toggle()">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <!-- sm/md/lg mode-->
+        <div class="hidden-xs visable-sm visible-md visible-lg">
+          <br />
+          <h1>{{selectedPublication?.title}}</h1>
+          <br />
+          <br />
+          <audio [src]="FileURL()" controls="controls">
+            audio
+          </audio>
+          <br />
+          <br />
+          <br />
+          <br />
+          <img style="max-height: 500px; max-width: 500px;" src="{{selectedPublication.cover_url.full_url}}" class="img-rounded " />
+        </div>
+
+        <!-- xs mode-->
+        <div class="col-xs-12 hidden-sm hidden-md hidden-lg" >
+          <br />
+          <h1>{{selectedPublication?.title}}</h1>
+          <br />
+          <br />
+          <audio [src]="FileURL()" controls="controls">
+            audio
+          </audio>
+          <br />
+          <br />
+          <br />
+          <br />
+          <img style="max-height: 350px; max-width: 350px;" src="{{selectedPublication.cover_url.full_url}}" class="img-rounded " />
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</div><!-- closure of container-->

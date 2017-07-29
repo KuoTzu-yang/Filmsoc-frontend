@@ -1,0 +1,94 @@
+﻿.jumbotron {
+  position: relative;
+  background-image: url('../assets/NEW2.jpg');
+  position: relative;
+  height: 520px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-origin: border-box;
+  -moz-background-origin: border-box;
+  -o-background-origin: border-box;
+  background-origin: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+    .jumbotron .haze {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(128, 128, 128, 0);
+    }
+
+    .jumbotron .container {
+        position: absolute;
+        padding-left: 30px;
+        z-index: 0;
+    }
+
+        .jumbotron .container .main-title {
+            color: whitesmoke;
+            
+        }
+
+.promo-title {
+    margin-bottom: 25px;
+    text-align: center;
+   
+}
+
+.promo-desc {
+  text-align: center;
+  padding-top:2em;
+  border-top-style:solid;
+  border-top-width:1px;
+}
+
+
+.promo-pic {
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-clip: border-box;
+    -moz-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-origin: border-box;
+    -moz-background-origin: border-box;
+    -o-background-origin: border-box;
+    background-origin: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.promo-pic-rfs {
+  background-image: url('../assets/Regular_FIlm_Show.png');
+  cursor:pointer;
+}
+
+.promo-pic-liba {
+  background-image: url('../assets/DVD_VCD_Library.png');
+  cursor: pointer;
+}
+
+.promo-pic-fft {
+  background-image: url('../assets/Free_Film_Tickects.png');
+  cursor: pointer;
+}
+
+
+p, h4, h3, h1 {
+  font-family: "Yu Gothic", SimHei;
+}
+

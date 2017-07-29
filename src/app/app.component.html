@@ -1,20 +1,200 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
-  </li>
-</ul>
+﻿<!------------------userinfo-detail modal---------------------------->
+<div class="modal fade" id="userinfo-detail_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <div class="user-title">
+          <h3 class="modal-totle">Welcome, our member</h3>
+        </div>
+      </div><!--header-->
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 user-basic">
+            <h2 class="user-name">
+              {{userService.user.full_name}}&nbsp;&nbsp;
+              <small>({{MEMBERSHIP_TABLE[userService.user.member_type]}})</small>
+            </h2>
+            <br />
+            <dl class="dl-horizontal user-desc">
+              <dt>
+                <p>
+                  Join at
+                </p>
+              </dt>
+              <dd>
+                <p>
+                  {{userService.user.join_at}}
+                </p>
+              </dd>
+              <dt>
+                <p>
+                  Membership till
+                </p>
+              </dt>
+              <dd>
+                <p>
+                  {{userService.user.expire_at}}
+                </p>
+              </dd>
+              <dt>
+                <p>
+                  Regular Film Show
+                </p>
+              </dt>
+              <dd>
+                <p>
+                  {{userService.user.rfs_count}} time(s)
+                </p>
+              </dd>
+              <dt>
+                <p>
+                  Last login
+                </p>
+              </dt>
+              <dd>
+                <p>
+                  {{userService.user.last_login}}
+                </p>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div><!--body-->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          close
+        </button>
+      </div><!--footer-->
+
+    </div><!--content-->
+  </div><!--dialog-->
+</div><!--modal-->
+<!--navbar= navigation bar -->
+<!--basic bootstrap navigation bar instructions: https://pjchender.blogspot.hk/2015/04/bootstraptabsnavigation-bar.html -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+
+
+
+    <div class="navbar-header">
+      <!--if the displayable width is so narrow, we change the way we display the navigation bar-->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <!--screen reader only-->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <!-- we use three "icon-bar" to produce the "hamburger icon" like chinese word "three"-->
+      </button>
+
+      <a class="navbar-brand" routerLink="./home">
+        <strong>
+          Film Society
+        </strong>
+      </a>
+    </div>
+
+
+
+
+
+
+    <!-- Collect the nav links, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!--collapse part 1 -->
+
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLinkActive="active" routerLink="/show" class="hidden-xs">Regular Film Show</a>
+          <a (click)="routerService.goToRFS()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="hidden-sm hidden-md hidden-lg">Regular Film Show</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/library" class="hidden-xs">VCD/DVD Library</a>
+          <a (click)="routerService.goToLiba()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="hidden-sm hidden-md hidden-lg">VCD/DVD Library</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/ticket" class="hidden-xs">Free Film Tickets</a>
+          <a (click)="routerService.goToFFT()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="hidden-sm hidden-md hidden-lg">Free Film Tickets</a>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li routerLinkActive="active">
+              <a routerLink="/news" class="hidden-xs">News</a>
+              <a (click)="routerService.goToNews()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="hidden-sm hidden-md hidden-lg">News</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/document" class="hidden-xs">Document</a>
+              <a (click)="routerService.goToDoc()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="hidden-sm hidden-md hidden-lg">Document</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/publication" class="hidden-xs">Publication</a>
+              <a (click)="routerService.goToPub()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="hidden-sm hidden-md hidden-lg">Publication</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/about" class="hidden-xs">About Us</a>
+              <a (click)="routerService.goToAbout()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="hidden-sm hidden-md hidden-lg">About Us</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <p class="navbar-text">
+
+          <span *ngIf="!(userService.isLogin)">
+            Guest
+            <button class="btn" (click)="userService.login()">
+              Sign In
+            </button>
+          </span>
+
+          <span *ngIf="userService.isLogin">
+            <a routerLink="/userinfo" padding-left="3">{{userService.user.full_name}}</a>
+            <button class="btn" (click)="userService.logout()">
+              Sign Out
+            </button>
+            <button class="btn" data-toggle="modal" data-target="#userinfo-detail_modal">
+              Detail
+            </button>
+            <a class="btn" *ngIf="(!userService.isAdmin)" href="http://ihome.ust.hk/~su_film/admin/" clickedable>
+              Admin
+            </a>
+          </span>
+
+        </p>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+
+  </div> <!-- /.container-fluid -->
+</nav> <!-- the end of the navigation bar -->
+
+
+
+
+<router-outlet></router-outlet>
+<film-notification></film-notification>
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <film-one-sentence></film-one-sentence>
+    </div>
+  </div>
+</footer>
 

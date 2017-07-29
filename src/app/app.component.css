@@ -1,0 +1,92 @@
+﻿.footer {
+  background-color: #eee;
+ 
+}
+
+
+/* for user info -------------------------------------------------*/
+
+.user-title {
+  text-align: center;
+}
+
+.user-name {
+  min-width: 400px;
+}
+
+.user-desc {
+  font-size: 14px;
+}
+
+.user-desc dt {
+  min-width: 45%;
+  text-align: left;
+}
+
+.user-desc dd {
+  margin-left: 55%;
+  min-width: 250px;
+}
+
+
+
+
+
+
+/*----------------- alter(patch) the default bootstrap----------------- */
+
+p, h4, h3, h1 {
+  font-family: "Yu Gothic", SimHei;
+}
+
+.navbar-default .navbar-nav > li > a {
+  margin-top: 5px;
+  color: #ba4040;
+  font-family: "Yu Gothic", SimHei;
+}
+
+.navbar-default .navbar-header > a {
+  margin-top: 5px;
+  color: #ba4040;
+  font-family: "Yu Gothic", SimHei;
+}
+
+.navbar-default .navbar-nav > li :hover {
+  color: white;
+  background-color: #ba4040;
+}
+
+.navbar-default .navbar-header :hover {
+  color: white;
+  background-color: #ba4040;
+}
+
+.dropdown-menu > li > a {
+  color: #ba4040;
+}
+
+.dropdown-menu {
+  background-color: white;
+}
+
+  .dropdown-menu > li > a {
+    background: white;
+  }
+
+.navbar-right {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

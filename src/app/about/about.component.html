@@ -1,0 +1,189 @@
+﻿<!--modal for phone(xs) mode-->
+<div class="modal fade" id="exco_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h3 class="modal-totle">{{selectedExco?.name_en}}&nbsp;&nbsp;|&nbsp;&nbsp;{{selectedExco?.name_ch}}</h3>
+      </div><!--header-->
+
+      <div class="modal-body">
+        <p>
+          <strong>{{selectedExco?.position}}</strong>
+        </p>
+        <hr />
+        <p>
+          email:
+          <a href="mailto:{{selectedExco?.email}}" target="_blank">{{selectedExco?.email}}</a>
+        </p>
+      </div><!--body-->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          close
+        </button>
+      </div><!--footer-->
+
+    </div><!--content-->
+  </div><!--dialog-->
+</div><!--modal-->
+
+
+<!-------Jumbotron & Title ------->
+<div class="title">
+  <div class="container">
+    <div class="main-title">
+      <h1>VECTOR </h1>
+    </div>
+  </div>
+</div>
+
+
+<!------About container ------->
+<div class="row about-wrapper">
+
+  <!----loading---->
+  <div class="spinner-wrapper" *ngIf="(initLoading)">
+    <div class="loader"></div>
+  </div>
+
+
+  <!---------------------left panel---------------------------->
+  <div class="col-sm-7 col-xs-12" *ngIf="!(initLoading)">
+
+    <div class="jumbotron" (click)="backToIntro()" cursor="pointer">
+      <div class="haze">
+      </div>
+    </div>
+
+    <div *ngIf="afterClick">
+      <div class="col-sm-7 hidden-xs">
+        <div class="exco-detail-pic-space">
+          <img src="{{selectedExco.img_url.full_url}}" class="img-rounded exco-detail-pic" />
+        </div>
+      </div>
+      <div class="col-sm-5 hidden-xs">
+        <div class="exco-detail-wrapper">
+          <div class="exco-detail-content">
+            <h1>
+              <strong>{{selectedExco.position}}</strong>
+              <br />
+            </h1>
+            <h1>{{selectedExco.name_en}}&nbsp;&nbsp;|&nbsp;&nbsp;{{selectedExco.name_ch}}</h1>
+            <br />
+            <br />
+            <br />
+            <div>
+              <p>
+                email:
+                <strong>
+                  <a href="mailto:{{selectedExco.email}}" target="_blank">{{selectedExco.email}}</a>
+                </strong>
+              </p>
+            </div>
+
+          </div>
+          <div class="exco-detail-desc">
+            <div class="exco-detail-desc-content">
+              {{selectedExco.descript}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!afterClick">
+      <div class="hidden-xs">
+
+        <div class="intro-top">
+          <div class="title">
+            <h3>The Executive Committee of the Film Society, HKUSTSU, Session 2017-2018</h3>
+          </div>
+          <div class="content">
+            <div>
+              <p>
+                Email:
+                <strong>
+                  <a href="mailto:su_film@ust.hk" alt="Mail to Film Society" target="_blank">su_film@ust.hk</a>
+                </strong>
+              </p>
+            </div>
+            <div>
+              <p>
+                Facebook:
+                <strong>
+                  <a href="http://www.facebook.com/filmsoc.ust.hk" alt="Film Society Facebook" target="_blank">香港科技大學電影學會 Film Society, HKUSTSU</a>
+                </strong>
+              </p>
+            </div>
+            <div>
+              <p>
+                Instagram:
+                <strong>
+                  <a href="https://www.instagram.com/filmsoc.hkust" alt="Instagram of Film Society" target="_blank">filmsoc.hkust</a>
+                </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-bottom">
+          <div class="content">
+            <p>Vector, composed of 15 enthusiastic film lovers, is going on its way to spread the film culture and influence more and more students, staff and other people in HKUST.</p>
+            <p>
+              As we all know, in mathematics, Vector has both a magnitude and a direction in space. Just like us, we have ability, ambition and we are full of energy to achieve something new, to accomplish a new goal. Though we are sure to encounter many difficulties in the future, we will unify as one and face them together.
+            </p>
+            <p>
+              Vector is the well-known “bad guy” in Despicable Me. However, he has a dream ---- to steal the moon. Although it is tough, he tries his best and does not fear the failure. We will be just like him, keeping a straight forward attitude all the time to finish our mission.
+            </p>
+            <p>
+              Film Society is a huge boat, while Vector is the new engine and the new rudder to ensure the right direction and smooth sailing. With our strong will and great passion, Vector will keep sailing on the way that previous Executive Committee members have sailed and, furthermore, create something new.
+            </p>
+            <p>
+              Film is a bridge to connect different people in the world. Vector will let more and more people benefit from films with our wholehearted efforts. We are ready to open up a new era with Film Society.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!---------------------right panel---------------------------->
+  <div class="col-sm-5 col-xs-12">
+    
+    <div *ngIf="!(initLoading)">
+      <div class="list-item col-lg-4 col-md-4 col-sm-4 col-xs-6"
+           *ngFor="let exco of excoes">
+        <div class="exco-content">
+          <a (click)="goToExco(exco)">
+            <img src="{{exco.img_url.full_url}}" class="img-rounded exco-pic" />
+          </a>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6 ">
+          <p color="grey">
+            <strong>{{exco.position}}</strong>
+          </p>
+        </div>
+        <div class="hidden-lg hidden-md hidden-sm col-xs-6 btn-detail">
+          <button type="button" class="btn" (click)="goToExco(exco)" data-toggle="modal" data-target="#exco_modal">Detail</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+

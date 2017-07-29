@@ -1,0 +1,117 @@
+﻿<!--
+  existing bugs / urgent improvemnets :
+    -1. <iframe>'s processing speed on the phone is slow and its displayment sometimes go beyond expection.
+        So I use the alternative method with two simple link. Try to improve the phone(xs) mode to let users can
+        directly watch in our page.(same in document/magazine/micromagazine)
+
+
+-->
+
+
+<!-------Jumbotron & Title ------->
+
+<div class="title">
+  <div class="container">
+    <h1 class="main-title">Documents</h1>
+    <div class="row">
+      <div>
+        <!-- Here is the space for placing sub-titles -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="jumbotron">
+  <div class="haze">
+  </div>
+</div>
+
+
+
+
+
+<!-------Document container ------->
+
+
+<div #wrapper class="container" id="wrapper" [class.toggled]="toggled">
+
+  <!-- loading -->
+  <div class="spinner-wrapper" *ngIf="initLoading">
+    <div class="loader"></div>
+  </div>
+
+
+
+  <!--loading completed: left panel-->
+
+  <div id="sidebar-wrapper" (OnScrollMethod)="nextPage()" ScrollDistance="3" infinite-scroll="InfiniteScroll"
+       [@sidebarAnimation]="" *ngIf="!initLoading">
+    <div class="document-list">
+      <div class="document-label" *ngFor="let document of documents"
+           (click)="goToDocument(document)" [class.selected]="selectedDocument?.id===document.id"
+           [@ticketLabel]="">
+        <div class="document-brief-wrapper" align="center">
+          <div class="document-title">
+            <p>
+              <strong>{{document.title}}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-spinner-wrapper" *ngIf="scrollLoading">
+        <loaders-css [loader]="'line-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--loading completed: right panel-->
+  <div #contentWrapper id="content-wrapper"
+       [@contentAnimation]="" *ngIf="!initLoading">
+    <div class="row document-detail">
+      <div>
+        <button type="button" class="btn btn-default visible-xs visible-sm hidden-md hidden-lg navbar-toggle"
+                (click)="toggle()">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+
+        <!-- sm/md/lg mode-->
+        <div class="hidden-xs visable-sm visible-md visible-lg">
+          <br />
+          <h1>{{selectedDocument?.title}}</h1>
+
+          <br />
+          <br />
+          <iframe [src]="FileURL()" width="600" height="600" frameborder="1"></iframe>
+        </div>
+
+
+        <!-- xs mode-->
+
+        <div class="visible-xs hidden-sm hidden-md hidden-lg">
+          <br />
+          <br />
+          <br />
+          <div class="xs-mode-title-patch">
+            <h1>{{selectedDocument?.title}}</h1>
+          </div>
+          <br />
+          <br />
+          <a [href]="FileDownloadURL()" alt="Downland">Download</a>
+          <br />
+          <br />
+          <a [href]="FileURL()" alt="View in new window">View in new window</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</div><!-- closure of container-->

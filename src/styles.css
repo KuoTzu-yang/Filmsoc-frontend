@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+﻿/* You can add global styles to this file, and also import other style files */
+body {
+  overflow-x: hidden;
+  /*the default height of navigation bar is around 40-50px */
+  padding-top: 85px;
+}
+
+.loader .line-spin-fade-loader div {
+  background-color: #555;
+}

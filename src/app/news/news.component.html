@@ -1,0 +1,86 @@
+﻿<!-------Jumbotron & Title ------->
+
+<div class="title">
+  <div class="container">
+    <h1 class="main-title">News</h1>
+    <div class="row">
+      <div>
+        <!-- Here is the space for placing sub-titles -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="jumbotron">
+  <div class="haze">
+  </div>
+</div>
+
+
+
+
+<div #wrapper class="container" id="wrapper" [class.toggled]="toggled">
+
+
+  <div class="spinner-wrapper" *ngIf="initLoading">
+    <!--<loaders-css [loader]="'line-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css>-->
+    <div class="loader"></div>
+  </div>
+
+
+
+
+  <!--loading completed: left panel-->
+
+  <div id="sidebar-wrapper" (OnScrollMethod)="nextPage()" ScrollDistance="3" infinite-scroll="InfiniteScroll"
+       [@sidebarAnimation]="" *ngIf="!initLoading">
+    <div class="news-list">
+      <div class="news-label" *ngFor="let news of newses"
+           (click)="goToNews(news)" [class.selected]="selectedNews?.id===news.id"
+           [@ticketLabel]="">
+        <div class="news-brief-wrapper" align="center">
+          <div class="news-title">
+            <p>
+              <strong>{{news.title}}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-spinner-wrapper" *ngIf="scrollLoading">
+        <loaders-css [loader]="'line-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css>
+      </div>
+    </div>
+  </div>
+
+
+  <!--loading completed: right panel-->
+  <div #contentWrapper id="content-wrapper"
+       [@contentAnimation]="" *ngIf="!initLoading">
+    <div class="row news-detail">
+
+      <button type="button" class="btn btn-default visible-xs visible-sm hidden-md hidden-lg navbar-toggle"
+              (click)="toggle()">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+
+      <!-- xs/sm/md/lg mode-->
+      <br />
+      <h1>{{selectedNews?.title}}</h1>
+      <br />
+      <br />
+      <p>
+        {{selectedNews?.content}}
+      </p>
+
+    </div>
+  </div>
+
+
+
+
+</div>
+
