@@ -1,10 +1,10 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
-
-
-import { HomeService } from './home.service';
 import { Logger } from '../logger';
 import { Router } from '@angular/router';
+
+import { HomeService } from './home.service';
+import { RouterService } from '../util/router.service';
 
 @Component({
     moduleId: module.id,
@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
     constructor(
+        public routerService: RouterService,
         private homeService: HomeService,
         private logger: Logger,
         private router: Router
@@ -23,22 +24,9 @@ export class HomeComponent implements OnInit {
 
     }
 
-
-
     ngOnInit(): void {
         
     }
 
-
-    goToRFS(): void {
-        this.router.navigate(['/show']);
-    }
-
-    goToLiba(): void {
-        this.router.navigate(['/library']);
-    }
-
-    goToFFT(): void {
-        this.router.navigate(['/ticket']);
-    }
+    
 }

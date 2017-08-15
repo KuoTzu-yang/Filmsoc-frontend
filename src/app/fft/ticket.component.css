@@ -6,7 +6,6 @@
 }
 
   .title .container {
-    
     position: relative;
     z-index: 1;
   }
@@ -14,6 +13,12 @@
   .title .container .main-title {
     color: black;
     height: 50px;
+  }
+
+  .title .container .main-title-xs {
+    color: black;
+    height: 35px;
+    margin-top: -12px;
   }
 
 
@@ -40,6 +45,27 @@
   box-sizing: border-box;
 }
 
+  .jumbotron :hover {
+    position: relative;
+    background-image: url('../assets/fft_banner.jpg');
+    position: relative;
+    height: 400px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-clip: border-box;
+    -moz-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-origin: border-box;
+    -moz-background-origin: border-box;
+    -o-background-origin: border-box;
+    background-origin: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
   .jumbotron .haze {
     position: absolute;
     height: 100%;
@@ -49,15 +75,38 @@
     background-color: rgba(128, 128, 128, 0);
   }
 
+.jumbotron-xs {
+  position: relative;
+  background-image: url('../assets/phone_ver.jpg');
+  position: relative;
+  height: 350px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-origin: border-box;
+  -moz-background-origin: border-box;
+  -o-background-origin: border-box;
+  background-origin: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+  .jumbotron-xs .haze {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0);
+  }
 
 
-
-
-
-
-
-
-
+/*---------------wrapper----------------*/
 
 
 
@@ -120,7 +169,6 @@
   overflow-x: hidden;
   height: auto;
   /* these two lines are used to solve the unstable view that occurs in the Chrome */
-
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0) scale(1.0, 1.0);
 }
@@ -155,6 +203,7 @@
 }
 
 
+/* ----------------------left panel ---------------------*/
 .ticket-list {
   width: 270px;
   padding-top: 20px;
@@ -247,6 +296,7 @@
       border: 2px solid #888;
     }
 
+/* ------------------ right panel ------------------------*/
 
 #content-wrapper .ticket-detail h3 {
   margin-top: 10px;
@@ -278,11 +328,6 @@
 .warning-reminder {
   color: #ee0000;
 }
-
-
-
-
-
 
 
 /*------------------------------------     loading     ------------------------------------*/
@@ -332,6 +377,7 @@
 }
 
 
+/*----- patch ------*/
 
 p, h5, h4, h3, h2, h1 {
   font-family: "Yu Gothic", SimHei;

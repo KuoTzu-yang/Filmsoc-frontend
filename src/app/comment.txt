@@ -1,39 +1,20 @@
+﻿What you should learn while understanding the source code? (For IT secrectary)
 
-update 2017/06/28
-(not sure: 3,4,5)
+1. HTML/CSS/JavaScript/Bootstrap. They are the basic knowledge for building website frontend.
 
--1. identify the root module and root component first.
-    
-	For example,
-    <film-app> from app.component.ts
-	AppModule form app.module.ts
+2. RxJS(ReactiveX library for JavaScript) source: http://reactivex.io/rxjs/ or you can find some tutorials online.
+   This is the library dealing with the asynchronous data flow.
 
--2. appmodule has no access to read the source of the folder "src" 
+3. Basic Concepts & Terms of Computers and Network(計算機概論/網路概論) (optional)
+   This may not directly related to our code, but this do help a lot. 
 
-update 2017/06/29
+4. Angular 2 (the most important part)
+   Our website built by Angular2. So you should look through all of the basic part and some advanced part of this website
+   https://angular.io/ (English)
+   http://origin.angular.live/docs/ts/latest/quickstart.html (Chinese)
 
-     Q2. Why sometimes the website can not
-     display as your expectation?
-     A2. Be aware of the spatial allocation.
-         Try to avoid the confliction of the 
-         display area
+5. mysql 
 
--3. It seems that one web can not exist two or more navigation bars, it will case unexpected errors.
-    (not sure about it and I think there are some ways to solve this problem)
+6. apache2
 
--4. Be aware of the spatial allocation. Try to avoid the confliction of the display area.
-    Otherwise, when you utilize some directives that will rearrange the spatial distribution of the 
-	template, it will cause abundant unexpected errors. It will be a frustrating nightmare for 
-	the programmers.
-
--5. @ is about single direction binding
-
-update 2017/06/30
-
--6. Except the AppComponent template, other component's template which may later loaded inside the AppComponent should
-    use at least "ngOnInit"
-
-update 2017/07/04
-
--7. SimpleDisk is used for normal log/history/borrow_record... 
-    Disk is used for display.
+7. other backend languages(optional)

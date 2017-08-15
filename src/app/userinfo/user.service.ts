@@ -42,7 +42,7 @@ export class UserService {
                 this.isLogin = !(this.user.itsc === undefined);
                 this.isMember = !(this.user.id === undefined);
                 this.isAdmin = this.user.admin;
-                console.log(this.user);
+                //console.log(this.user);
             }
             )
             .catch(this.logger.handleError);
@@ -50,7 +50,6 @@ export class UserService {
     }
 
     login(): void {
-        // not 
         let next = this.location.path(true);
         let url = this.settings.login_url() + (next ? "?next=" + next : "");
         let redirect = "https://cas.ust.hk/cas/login?service=" + encodeURIComponent(url);
@@ -60,7 +59,7 @@ export class UserService {
     logout(): void {
         if (!(this.isLogin)) { return; }
         let next = this.location.path(true);
-        console.log(next);
+        //console.log(next);
         let url = this.settings.logout_url() + (next ? "?next=" + next : "");
         location.href = url;
     }

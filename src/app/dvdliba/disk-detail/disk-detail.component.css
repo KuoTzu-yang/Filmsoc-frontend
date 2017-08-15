@@ -24,14 +24,13 @@
 
 .disk-info .rate-wrapper {
   position: absolute;
-  top: 0;
+  top: -10px;
   right: 5%;
 }
 
 .disk-info .reserve-wrapper {
   position: absolute;
-  ;
-  bottom: 0;
+  bottom: 5px;
   right: 5%;
 }
 
@@ -103,6 +102,13 @@
     float: right;
   }
 
+  /* -------------patch ------------*/
 p, h4, h3, h2, h1 {
   font-family: "Yu Gothic", SimHei;
+}
+
+.back-button[_ngcontent-c5] {
+  position: absolute;
+  top: 15px;
+  right: 5%;
 }

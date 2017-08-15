@@ -1,0 +1,60 @@
+﻿.user-basic {
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px 0px 0px 0px;
+  background-color: rgba(240, 240, 240, 0.3);
+}
+.user-name {
+  font-family: "Yu Gothic", SimHei;
+  text-align: center;
+}
+
+.user-membership {
+  font-family: "Yu Gothic", SimHei;
+  text-align: center;
+}
+
+.user-desc {
+  font-family: "Yu Gothic", SimHei;
+  font-size: 14px;
+}
+
+.user-disk-entry {
+  width: 120px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.user-borrow {
+  min-height: 200px;
+}
+
+.user-reserve {
+  min-height: 200px;
+}
+
+.user-history {
+  min-height: 200px;
+}
+
+.user-desc dt {
+  width: 45%;
+}
+
+.user-desc dd {
+  margin-left: 55%;
+}
+
+.user-disk h3 {
+  font-family: "Yu Gothic", SimHei;
+  margin-left: 20px;
+}
+
+.user-disk p {
+  font-family: "Yu Gothic", SimHei;
+  margin-left: 20px;
+}
+
+.user-disk {
+  min-height: 700px;
+}

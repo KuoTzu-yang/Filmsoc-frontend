@@ -47,6 +47,35 @@
   left: 0;
   background-color: rgba(128, 128, 128, 0);
 }
+.jumbotron-xs {
+  position: relative;
+  background-image: url('../../assets/phone_ver.jpg');
+  position: relative;
+  height: 350px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-origin: border-box;
+  -moz-background-origin: border-box;
+  -o-background-origin: border-box;
+  background-origin: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+  .jumbotron-xs .haze {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0);
+  }
 
 
 /*--------------------------wrapper-------------------------------*/
@@ -101,11 +130,111 @@
 }
 
 
+/*---------- phone-mode ----------*/
+.phone-wrapper {
+  text-align: center;
+  padding-top: 20px;
+  position: relative;
+  min-height: 650px;
+  padding-left: 20%;
+  padding-right: 20%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.phone-wrapper .button-wrapper {
+  width: 260px;
+  text-align: center;
+  height: 240px;
+}
 
+  .phone-wrapper .button-wrapper .btn-group-vertical {
+    width: 90%;
+  }
+
+  .phone-wrapper .button-wrapper .button-list {
+    border-left-color: rgba(128, 128, 128, 0.3);
+    border-bottom-color: rgba(128, 128, 128, 0.3);
+    border-top-color: black;
+    border-right-color: rgba(128, 128, 128, 0.3);
+    border-style: solid;
+    /*border-color: rgba(128, 128, 128, 0.3);*/
+    border-width: 2px;
+    background-color: #f1f1f1;
+    width: 250px;
+    height: 200px;
+  }
+
+
+
+.magazine-label-phone {
+  border-left-color: rgba(128, 128, 128, 0.3);
+  border-bottom-color: rgba(128, 128, 128, 0.3);
+  border-top-color: black;
+  border-right-color: rgba(128, 128, 128, 0.3);
+  border-style: solid;
+  border-width: 2px;
+  height: 250px;
+  width: 240px;
+  background-color: #f2f2f2;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-left: 5px;
+  padding-top: 0.7em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
+  -webkit-transform-origin: 1em center;
+  -moz-transform-origin: 1em center;
+  -o-transform-origin: 1em center;
+  transform-origin: 1em center;
+  /* these two lines are used to solve the unstable view that occurs in the Chrome */
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+  .magazine-label-phone:hover {
+    height: 300px;
+  }
+
+.magazine-label-phone.selected {
+  border-top-color: #ba4040;
+  height: 300px;
+}
+
+
+.magazine-label-phone .magazine-brief-wrapper {
+  text-align: center;
+}
+
+
+.magazine-label-phone .magazine-brief-wrapper .magazine-title {
+  font-size: 11.5px;
+  margin-left: -5px;
+  width: 225px;
+  text-align: center;
+}
+
+.magazine-label-phone .magazine-brief-wrapper .magazine-picture img {
+  max-width: 210px;
+  max-height: 200px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.magazine-label-phone .magazine-brief-wrapper {
+  text-align: center;
+}
 
 
 /*--------------------------left panel-------------------------------*/
-
 #sidebar-wrapper .button-wrapper {
   width: 260px;
   text-align: center;
@@ -126,8 +255,7 @@
   border-width: 2px;
   background-color: #f1f1f1;
   width: 250px;
-  height: 215px;
-  box-shadow: 6px 6px 3.5px rgba(0, 0, 0, 0.7);
+  height: 200px;
 }
 
 
@@ -184,11 +312,17 @@
 }
 
 
+  .magazine-label .magazine-brief-wrapper {
+    text-align: center;
+  }
 
-.magazine-label .magazine-brief-wrapper .magazine-title {
-  width: 220px;
-  text-align: center;
-}
+
+  .magazine-label .magazine-brief-wrapper .magazine-title {
+    font-size: 11.5px;
+    margin-left: -5px;
+    width: 225px;
+    text-align: center;
+  }
 
 .magazine-label .magazine-brief-wrapper .magazine-picture img {
   max-width: 210px;

@@ -23,7 +23,6 @@ export class NotificationComponent {
     ) {
         this.currentNotification = new Notification();
         this.isShow = false;
-        //The syntax here means that whenever emitter sends data to this component, we use the method show in this component to handle the data
         notificationService.emitter.subscribe(this.show);
     }
 

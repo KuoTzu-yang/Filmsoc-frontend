@@ -19,25 +19,46 @@
   box-sizing: border-box;
 }
 
-    .jumbotron .haze {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba(128, 128, 128, 0);
-    }
+ .jumbotron .haze {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(128, 128, 128, 0);
+ }
 
-    .jumbotron .container {
-        position: absolute;
-        padding-left: 30px;
-        z-index: 0;
-    }
+.jumbotron-xs {
+  position: relative;
+  background-image: url('../assets/phone_ver.jpg');
+  position: relative;
+  height: 350px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-origin: border-box;
+  -moz-background-origin: border-box;
+  -o-background-origin: border-box;
+  background-origin: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-        .jumbotron .container .main-title {
-            color: whitesmoke;
-            
-        }
+  .jumbotron-xs .haze {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0);
+  }
+
+ /*------------- Home container ----------------------------*/
 
 .promo-title {
     margin-bottom: 25px;
@@ -87,6 +108,8 @@
   cursor: pointer;
 }
 
+
+/* --------------- patch ----------------------*/
 
 p, h4, h3, h1 {
   font-family: "Yu Gothic", SimHei;

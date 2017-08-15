@@ -2,13 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\document",
-    "\\app\\dvdliba\\disk-list",
-    "\\app\\dvdliba\\disk-search",
-    "\\app\\publication",
     "\\app\\publication\\magazine",
-    "\\app\\publication\\podcast"
+    "\\app\\publication\\micro-magazine",
+    "\\app\\rfs"
   ],
-  "SelectedNode": "\\app\\document\\document.component.html",
+  "SelectedNode": "\\app\\rfs\\show.component.css",
   "PreviewInSolutionExplorer": false
 }

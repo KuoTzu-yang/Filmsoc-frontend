@@ -45,7 +45,7 @@ export class DocumentService {
         } else {
             document.doc_url.full_url = this.settings.resource_base() + 'img/qustion.png';
         }
-        //console.log(document.doc_url.full_url);
+        
         return document;
     }
 

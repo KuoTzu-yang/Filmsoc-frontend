@@ -12,27 +12,26 @@
 </div>
 
 
-<div class="jumbotron">
+<div class="jumbotron hidden-xs">
+  <div class="haze">
+  </div>
+</div>
+
+<div class="jumbotron-xs hidden-sm hidden-md hidden-lg">
   <div class="haze">
   </div>
 </div>
 
 
-
-
+<!-- news container-->
 <div #wrapper class="container" id="wrapper" [class.toggled]="toggled">
 
-
+  <!-- loading -->
   <div class="spinner-wrapper" *ngIf="initLoading">
-    <!--<loaders-css [loader]="'line-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css>-->
     <div class="loader"></div>
   </div>
 
-
-
-
   <!--loading completed: left panel-->
-
   <div id="sidebar-wrapper" (OnScrollMethod)="nextPage()" ScrollDistance="3" infinite-scroll="InfiniteScroll"
        [@sidebarAnimation]="" *ngIf="!initLoading">
     <div class="news-list">
@@ -66,7 +65,6 @@
         <span class="icon-bar"></span>
       </button>
 
-
       <!-- xs/sm/md/lg mode-->
       <br />
       <h1>{{selectedNews?.title}}</h1>
@@ -78,8 +76,6 @@
 
     </div>
   </div>
-
-
 
 
 </div>

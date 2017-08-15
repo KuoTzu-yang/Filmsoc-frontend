@@ -4,9 +4,6 @@ import { HttpModule }    from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// For the purpose of loading PDF,  source: 
-import { DomSanitizer } from '@angular/platform-browser';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -79,12 +76,18 @@ import { InfiniteScroll } from './util/infinite-scroll.directive';
 import { LoadersCssModule } from 'angular2-loaders-css';
 import { requestOptionsProvider } from './util/default-request-options.service';
 
+
 // Userinfo
+import { UserinfoComponent } from './userinfo/userinfo.component';
 import { UserService } from './userinfo/user.service';
 
 
 // Page Not Found
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+
+// For the purpose of loading PDF,  source: 
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -115,7 +118,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         OneSentenceComponent,
         InfiniteScroll,
         PageNotFoundComponent,
-
+        UserinfoComponent,
     ],
     providers: [
         RouterService,
@@ -133,7 +136,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         OneSentenceService,
         UserService,
         requestOptionsProvider,
-
     ],
     bootstrap: [AppComponent]
 })

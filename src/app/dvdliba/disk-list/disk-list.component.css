@@ -1,4 +1,8 @@
-﻿.library-list .list-item {
+﻿.list-wrapper {
+  overflow-y: hidden;
+}
+
+.library-list .list-item {
   margin-top: 2em;
   margin-bottom: 2em;
 }

@@ -92,15 +92,13 @@
   </div><!--dialog-->
 </div><!--modal-->
 
-<div class="jumbotronup">
-
+<div class="title">
   <div class="container">
-    <h1 class="main-title">Regular Film Show</h1>
-
+    <h1 class="main-title ">Regular Film Show</h1>
     <div class="row">
       <div>
         <p>
-          Every Thursday in one of Leature Theaters
+          Every Thursday in Lecture Theater
         </p>
       </div>
       <div *ngIf="show?.state==='Open'">
@@ -119,19 +117,29 @@
           {{show?.remarks}}
         </p>
       </div>
+
     </div>
-
-
   </div>
-
 </div>
 
-<div class="jumbotron">
 
+<!-- Jumbotron-->
+<div class="jumbotron hidden-xs">
   <div class="haze">
   </div>
-
 </div>
+
+
+<div class="jumbotron-xs hidden-sm hidden-md hidden-lg">
+  <div class="haze">
+  </div>
+</div>
+
+<div class="jumbotron-xs-patch hidden-sm hidden-md hidden-lg">
+  
+</div>
+
+
 
 
 
@@ -191,7 +199,7 @@
             </dt>
             <dd>
               <p>
-                <span *ngFor="let actor of show?.film_1.actors">{{actor}}, </span>
+                <span *ngFor="let actor of show?.film_1.actors">{{actor}}<span *ngIf="actor!==show?.film_1.actors[show?.film_1.actors.length-1]">, </span></span>
                 <span *ngIf="show?.film_1.actors.length<=0">Unknown</span>
               </p>
             </dd>
@@ -212,7 +220,7 @@
             </dt>
             <dd>
               <p>
-                <span *ngFor="let tag of show?.film_1.tags">{{tag}}, </span>
+                <span *ngFor="let tag of show?.film_1.tags">{{tag}}<span *ngIf="tag!==show?.film_1.tags[show?.film_1.tags.length-1]">, </span></span>
                 <span *ngIf="show?.film_1.actors.length<=0">Unknown</span>
               </p>
             </dd>
@@ -229,9 +237,8 @@
           </dl>
 
         </div>
-        <br />
         <hr />
-        <p>
+        <p class="hidden-xs">
           <strong>Plot</strong>
         </p>
         <div class="plot-button-wrapper hidden-sm hidden-md hidden-lg" align="center">
@@ -296,7 +303,7 @@
             </dt>
             <dd>
               <p>
-                <span *ngFor="let actor of show?.film_2.actors">{{actor}}, </span>
+                <span *ngFor="let actor of show?.film_2.actors">{{actor}}<span *ngIf="actor!==show?.film_2.actors[show?.film_2.actors.length-1]">, </span></span>
                 <span *ngIf="show?.film_2.actors.length<=0">Unknown</span>
               </p>
             </dd>
@@ -317,7 +324,7 @@
             </dt>
             <dd>
               <p>
-                <span *ngFor="let tag of show?.film_2.tags">{{tag}}, </span>
+                <span *ngFor="let tag of show?.film_2.tags">{{tag}}<span *ngIf="tag!==show?.film_2.tags[show?.film_2.tags.length-1]">, </span></span>
                 <span *ngIf="show?.film_2.actors.length<=0">Unknown</span>
               </p>
             </dd>
@@ -333,9 +340,8 @@
             </dd>
           </dl>
         </div>
-        <br />
         <hr />
-        <p>
+        <p class="hidden-xs">
           <strong>Plot</strong>
         </p>
         <div class="plot-button-wrapper hidden-sm hidden-md hidden-lg" align="center">
@@ -401,7 +407,7 @@
             </dt>
             <dd>
               <p>
-                <span *ngFor="let actor of show?.film_3.actors">{{actor}}, </span>
+                <span *ngFor="let actor of show?.film_3.actors">{{actor}}<span *ngIf="actor!==show?.film_3.actors[show?.film_3.actors.length-1]">, </span></span>
                 <span *ngIf="show?.film_3.actors.length<=0">Unknown</span>
               </p>
             </dd>
@@ -422,7 +428,7 @@
             </dt>
             <dd>
               <p>
-                <span *ngFor="let tag of show?.film_3.tags">{{tag}}, </span>
+                <span *ngFor="let tag of show?.film_3.tags">{{tag}}<span *ngIf="tag!==show?.film_3.tags[show?.film_3.tags.length-1]">, </span></span>
                 <span *ngIf="show?.film_3.actors.length<=0">Unknown</span>
               </p>
             </dd>
@@ -438,9 +444,8 @@
             </dd>
           </dl>
         </div>
-        <br />
         <hr />
-        <p>
+        <p class="hidden-xs">
           <strong>Plot</strong>
         </p>
         <div class="plot-button-wrapper hidden-sm hidden-md hidden-lg" align="center">

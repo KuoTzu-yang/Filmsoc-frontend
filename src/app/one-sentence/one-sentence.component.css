@@ -1,3 +1,13 @@
-﻿p, h4, h3, h1 {
+﻿/* ------ patch -------------*/
+p, h4, h3, h1 {
   font-family: "Yu Gothic", SimHei;
+}
+
+
+blockquote .small, blockquote footer, blockquote small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857143;
+  color: #777;
+  font-style: italic;
 }

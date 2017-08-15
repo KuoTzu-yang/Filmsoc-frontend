@@ -48,7 +48,7 @@ export class DiskService {
         body.objects[i] = this.getDiskFullUrl(body.objects[i]);
         
     }
-    console.log(body);
+      
     return body || {};
   }
 

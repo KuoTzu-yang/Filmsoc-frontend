@@ -58,17 +58,15 @@ export class DocumentComponent implements OnInit {
     }
 
     private onGetDocumentRes = (res: DocumentResponse) => {
-        //console.log("Response: ");
-        //console.log(res.objects);
+       
 
         if (res.errno) {
             this.logger.customErrorHandler(res);
         } else {
-            //console.log(res);
+            
             this.max_index = res.meta.total;
             this.meta = res.meta;
             this.documents = res.objects;
-            //console.log(this.excoes);
             this.initLoading = false;
             this.selectedDocument = this.documents[0];
         }
@@ -91,7 +89,6 @@ export class DocumentComponent implements OnInit {
     }
 
     private FileURL(): any {
-        //console.log(this.selectedDocument.doc_url.full_url);
         return this.sanitizer.bypassSecurityTrustResourceUrl(this.selectedDocument.doc_url.full_url);
     }
 

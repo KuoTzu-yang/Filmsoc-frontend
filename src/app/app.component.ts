@@ -5,7 +5,6 @@ import { UserService } from './userinfo/user.service';
 import { SettingsService } from './settings';
 import { RouterService } from './util/router.service';
 
-import { MEMBERSHIP_TABLE } from './userinfo/userinfo';
 
 @Component({
     moduleId: module.id,
@@ -15,8 +14,7 @@ import { MEMBERSHIP_TABLE } from './userinfo/userinfo';
    
 })
 export class AppComponent {
-    
-    public MEMBERSHIP_TABLE: {};
+
 
     constructor(
         public userService: UserService,
@@ -25,10 +23,8 @@ export class AppComponent {
         private router: Router,
     ) {
         userService.getCurrentUser()
-        this.MEMBERSHIP_TABLE = MEMBERSHIP_TABLE;
     }
-
     
     title = "Film Society, HKUSTSU";
 }
-
+    

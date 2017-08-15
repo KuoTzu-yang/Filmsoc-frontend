@@ -41,7 +41,6 @@ export class NewsComponent implements OnInit {
     }
 
     getNews(index: number, limit: number): void {
-        //console.log("index: " + index + "  limit: " + limit);
         
         this.newsService.getNews(index, limit)
             .subscribe(
@@ -51,8 +50,6 @@ export class NewsComponent implements OnInit {
     }
 
     private onGetNewRes = (res: NewsResponse) => {
-        //console.log("Response: ");
-        //console.log(res.objects);
 
         if (res.errno) {
             this.logger.customErrorHandler(res);
@@ -69,7 +66,6 @@ export class NewsComponent implements OnInit {
     }
 
     private nextPage(): void {
-        //console.log('getting next page!');
         if (this.next_page > this.max_index) {
             return;
         } else {

@@ -22,7 +22,7 @@ export class OneSentenceComponent implements OnInit {
   }
 
   getOneSentence(): void {
-      // because OneSentenceService.getOneSentence() returns a Promise , therefore we can use then to continue the operations of the chain
+
     this.oneSentenceService.getOneSentence()
         .then(res => {this.oneSentence = res});
   }

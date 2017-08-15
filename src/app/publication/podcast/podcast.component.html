@@ -30,7 +30,7 @@
 
 
 <!-------Podcast container ------->
-<div #wrapper class="container" id="wrapper" [class.toggled]="toggled">
+<div #wrapper class="container hidden-xs" id="wrapper" [class.toggled]="toggled">
 
   <!-- still loading -->
   <div class="spinner-wrapper" *ngIf="initLoading">
@@ -51,11 +51,11 @@
           <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/publication">
             Magazine
           </button>
-          <button class="library-button btn btn-lg" routerLinkActive="active" routerLink="/podcast">
-            Podcast
-          </button>
-          <button class="library-button btn btn-lg" routerLinkActive="active" routerLink="/micro-magazine">
+          <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/micro-magazine">
             MicroMagazine
+          </button>
+          <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/podcast">
+            Podcast
           </button>
         </div>
       </div>
@@ -97,7 +97,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <!-- sm/md/lg mode-->
+        
         <div class="hidden-xs visable-sm visible-md visible-lg">
           <br />
           <h1>{{selectedPublication?.title}}</h1>
@@ -134,3 +134,47 @@
   </div>
 
 </div><!-- closure of container-->
+
+<!-- phone-mode -->
+<div class="hidden-sm hidden-md hidden-lg phone-wrapper">
+  <div class="button-wrapper">
+    <div class="button-list">
+      <h3>
+        <strong>Catgeory</strong>
+      </h3>
+      <div class="btn-group-vertical" role="group">
+        <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/publication">
+          Magazine
+        </button>
+        <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/micro-magazine">
+          MicroMagazine
+        </button>
+        <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/podcast">
+          Podcast
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="podcast-list">
+    <div class="podcast-label-phone" *ngFor="let publication of podcasts"
+         (click)="goToPodcast(publication)" [class.selected]="selectedPublication?.id===publication.id"
+         [@ticketLabel]="">
+      <div class="podcast-brief-wrapper" align="center">
+        <div class="podcast-title">
+          <p>
+            <strong>{{publication.title}}</strong>
+          </p>
+        </div>
+        <div class="podcast-picture">
+          <img src="{{publication.cover_url.full_url}}" class="img-rounded " />
+        </div>
+        <br />
+        <div class="publication-link" *ngIf="selectedPublication?.id===publication.id">
+          <audio width="150px" [src]="FileURL()" controls="controls">
+            audio
+          </audio>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

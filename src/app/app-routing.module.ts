@@ -1,7 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-
 import { HomeComponent } from './home/home.component';
 import { ShowComponent } from './rfs/show.component';
 import { DiskComponent } from './dvdliba/disk.component';
@@ -14,6 +13,7 @@ import { DocumentComponent } from './document/document.component';
 import { MagazineComponent } from './publication/magazine/magazine.component';
 import { PodcastComponent } from './publication/podcast/podcast.component';
 import { MicroMagazineComponent } from './publication/micro-magazine/micro-magazine.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
@@ -45,13 +45,9 @@ const routes: Routes = [
     { path: 'publication', component: MagazineComponent },
     { path: 'podcast', component: PodcastComponent },
     { path: 'micro-magazine', component: MicroMagazineComponent },
+    { path: 'userinfo', component: UserinfoComponent },
     { path: '**', component: PageNotFoundComponent },
-   
 
-
-
-    
-   
 ];
 
 @NgModule({

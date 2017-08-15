@@ -1,81 +1,4 @@
-﻿<!------------------userinfo-detail modal---------------------------->
-<div class="modal fade" id="userinfo-detail_modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-        </button>
-        <div class="user-title">
-          <h3 class="modal-totle">Welcome, our member</h3>
-        </div>
-      </div><!--header-->
-
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-4 user-basic">
-            <h2 class="user-name">
-              {{userService.user.full_name}}&nbsp;&nbsp;
-              <small>({{MEMBERSHIP_TABLE[userService.user.member_type]}})</small>
-            </h2>
-            <br />
-            <dl class="dl-horizontal user-desc">
-              <dt>
-                <p>
-                  Join at
-                </p>
-              </dt>
-              <dd>
-                <p>
-                  {{userService.user.join_at}}
-                </p>
-              </dd>
-              <dt>
-                <p>
-                  Membership till
-                </p>
-              </dt>
-              <dd>
-                <p>
-                  {{userService.user.expire_at}}
-                </p>
-              </dd>
-              <dt>
-                <p>
-                  Regular Film Show
-                </p>
-              </dt>
-              <dd>
-                <p>
-                  {{userService.user.rfs_count}} time(s)
-                </p>
-              </dd>
-              <dt>
-                <p>
-                  Last login
-                </p>
-              </dt>
-              <dd>
-                <p>
-                  {{userService.user.last_login}}
-                </p>
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </div><!--body-->
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          close
-        </button>
-      </div><!--footer-->
-
-    </div><!--content-->
-  </div><!--dialog-->
-</div><!--modal-->
-<!--navbar= navigation bar -->
+﻿<!-------------------------------------- navigation bar ----------------------------------------->
 <!--basic bootstrap navigation bar instructions: https://pjchender.blogspot.hk/2015/04/bootstraptabsnavigation-bar.html -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -92,23 +15,14 @@
         <span class="icon-bar"></span>
         <!-- we use three "icon-bar" to produce the "hamburger icon" like chinese word "three"-->
       </button>
-
-      <a class="navbar-brand" routerLink="./home">
-        <strong>
-          Film Society
-        </strong>
-      </a>
+      <a class="navbar-brand hidden-xs" routerLink="./home" > <strong> Film Society </strong> </a>
+      <a (click)="routerService.goToHome()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-brand hidden-sm hidden-md hidden-lg"><strong> Film Society </strong> </a>
     </div>
 
 
 
-
-
-
-    <!-- Collect the nav links, and other content for toggling -->
+    <!-- navbar-collapse -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <!--collapse part 1 -->
-
       <ul class="nav navbar-nav">
         <li>
           <a routerLinkActive="active" routerLink="/show" class="hidden-xs">Regular Film Show</a>
@@ -150,27 +64,25 @@
 
       <ul class="nav navbar-nav navbar-right">
         <p class="navbar-text">
-
           <span *ngIf="!(userService.isLogin)">
             Guest
             <button class="btn" (click)="userService.login()">
               Sign In
             </button>
           </span>
-
           <span *ngIf="userService.isLogin">
-            <a routerLink="/userinfo" padding-left="3">{{userService.user.full_name}}</a>
+            <a routerLink="/userinfo">{{userService.user.full_name}}</a>
             <button class="btn" (click)="userService.logout()">
               Sign Out
             </button>
-            <button class="btn" data-toggle="modal" data-target="#userinfo-detail_modal">
-              Detail
-            </button>
-            <a class="btn" *ngIf="(!userService.isAdmin)" href="http://ihome.ust.hk/~su_film/admin/" clickedable>
+            <!-- admin is designed for exco only;  -->
+            <a class="btn btn-default" *ngIf="(userService.isAdmin)" href="http://ihome.ust.hk/~su_film/admin/" clickedable>
               Admin
             </a>
+            <a class="btn btn-default" *ngIf="(userService.isAdmin)" href="http://ihome.ust.hk/~su_film/register/" clickedable>
+              Register
+            </a>
           </span>
-
         </p>
       </ul>
 
@@ -178,10 +90,7 @@
 
   </div> <!-- /.container-fluid -->
 </nav> <!-- the end of the navigation bar -->
-
-
-
-
+<!--   main displayment  default: home -->
 <router-outlet></router-outlet>
 <film-notification></film-notification>
 
@@ -190,6 +99,8 @@
 
 
 
+
+<!-- one sentence -->
 <footer class="footer">
   <div class="container">
     <div class="row">

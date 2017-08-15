@@ -9,6 +9,10 @@ export class RouterService {
         private router: Router,
     ) { }
 
+    goToHome() {
+        this.router.navigate(['/home']);
+    }
+
     goToRFS() {
         this.router.navigate(['/show']);
     }

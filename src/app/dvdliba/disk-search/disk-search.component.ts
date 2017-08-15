@@ -21,7 +21,7 @@ export class DiskSearchComponent implements OnInit {
 
     public disks: Observable<Disk[]>
     private searchTerms = new Subject<string>();
-    private searchLimit = 5;
+    private searchLimit = 10;
 
 
     constructor(
@@ -32,11 +32,11 @@ export class DiskSearchComponent implements OnInit {
 
     search(term: string): void {
         this.searchTerms.next(term);
-        console.log(term);
+        
     }
 
     ngOnInit(): void {
-        console.log("checked");
+        //console.log("checked");
         this.disks = this.searchTerms
             .debounceTime(200)
             .distinctUntilChanged()
@@ -50,6 +50,5 @@ export class DiskSearchComponent implements OnInit {
             });
     }
 
-   
     
 }

@@ -6,8 +6,6 @@
 
 
 -->
-
-
 <!-------Jumbotron & Title ------->
 
 <div class="title">
@@ -22,7 +20,12 @@
 </div>
 
 
-<div class="jumbotron">
+<div class="jumbotron hidden-xs">
+  <div class="haze">
+  </div>
+</div>
+
+<div class="jumbotron-xs hidden-sm hidden-md hidden-lg">
   <div class="haze">
   </div>
 </div>
@@ -30,12 +33,10 @@
 
 
 
-
 <!-------Document container ------->
 
 
-<div #wrapper class="container" id="wrapper" [class.toggled]="toggled">
-
+<div #wrapper class="container hidden-xs" id="wrapper" [class.toggled]="toggled">
   <!-- loading -->
   <div class="spinner-wrapper" *ngIf="initLoading">
     <div class="loader"></div>
@@ -80,38 +81,42 @@
         </button>
 
 
-        <!-- sm/md/lg mode-->
-        <div class="hidden-xs visable-sm visible-md visible-lg">
-          <br />
-          <h1>{{selectedDocument?.title}}</h1>
-
-          <br />
-          <br />
-          <iframe [src]="FileURL()" width="600" height="600" frameborder="1"></iframe>
-        </div>
-
-
-        <!-- xs mode-->
-
-        <div class="visible-xs hidden-sm hidden-md hidden-lg">
-          <br />
-          <br />
-          <br />
-          <div class="xs-mode-title-patch">
-            <h1>{{selectedDocument?.title}}</h1>
-          </div>
-          <br />
-          <br />
-          <a [href]="FileDownloadURL()" alt="Downland">Download</a>
-          <br />
-          <br />
-          <a [href]="FileURL()" alt="View in new window">View in new window</a>
-        </div>
+        <br />
+        <h1>{{selectedDocument?.title}}</h1>
+        <br />
+        <br />
+        <iframe [src]="FileURL()" width="600" height="600" frameborder="1"></iframe>
 
       </div>
     </div>
   </div>
 
-
-
 </div><!-- closure of container-->
+
+
+
+<!-- phone-mode -->
+<div class="hidden-sm hidden-md hidden-lg phone-wrapper">
+  <div class="phone-list" (OnScrollMethod)="nextPage()" ScrollDistance="3" infinite-scroll="InfiniteScroll"
+       *ngIf="!initLoading">
+
+    <div class="document-list">
+      <div class="document-label-phone" *ngFor="let document of documents"
+           (click)="goToDocument(document)" [class.selected]="selectedDocument?.id===document.id"
+           [@ticketLabel]="">
+        <div class="document-brief-wrapper" align="center">
+          <div class="document-title">
+            <p>
+              <strong>{{document.title}}</strong>
+            </p>
+          </div>
+          <div *ngIf="selectedDocument?.id===document.id">
+            <p>
+              <a [href]="FileURL()" alt="View in new window">View in new window</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

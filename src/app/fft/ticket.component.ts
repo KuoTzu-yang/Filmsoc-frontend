@@ -59,7 +59,7 @@ export class TicketComponent implements OnInit {
   }
 
   nextPage(): void {
-    console.log('getting next page!');
+    //console.log('getting next page!');
     if(this.next_page > this.max_index) {
       return;
     }else {
