@@ -15,13 +15,11 @@ import { BaseResponse } from '../dvdliba/disk-detail/disk-detail';
     selector: 'film-about',
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.css'],
-    
-
 })
 
 export class AboutComponent implements OnInit {
-    
-    excoes: Exco[];    
+
+    excoes: Exco[];
     public initLoading: boolean;
     public afterClick: boolean;
     private meta: ExcoMeta;
@@ -45,7 +43,7 @@ export class AboutComponent implements OnInit {
             .subscribe(
             this.getExcoesOnLoad,
             this.logger.error
-            )
+          );
     }
 
     getExcoesOnLoad = (res: ExcoResponse) => {
@@ -67,9 +65,10 @@ export class AboutComponent implements OnInit {
         this.initLoading = true;
         this.afterClick = false;
         this.getExcoes();
-       
+
     }
 
+    // handle click event
     goToExco(exco): void {
         this.afterClick = true;
         this.selectedExco = exco;
@@ -78,8 +77,5 @@ export class AboutComponent implements OnInit {
     backToIntro(): void {
         this.afterClick = false;
     }
-    
+
 }
-
-
-

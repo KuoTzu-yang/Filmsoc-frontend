@@ -12,7 +12,7 @@ export const DiskAnimations = [
     transition('void => *', [
       style({transform: 'translateY(-100%)',
              opacity: 0}),
-      animate("300ms ease-out")
+      animate('300ms ease-out')
     ])
   ]),
-]
+];

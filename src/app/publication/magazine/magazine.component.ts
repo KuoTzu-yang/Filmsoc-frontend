@@ -25,7 +25,7 @@ export class MagazineComponent implements OnInit {
     public magazines: Publication[];
     public toggled: boolean;
     public initLoading: boolean;
-    
+
     private meta: PublicationMeta;
 
     private max_index: number;
@@ -33,7 +33,7 @@ export class MagazineComponent implements OnInit {
     private page_size: number;
 
     public selectedPublication: Publication;
-    
+
 
     constructor(
         private settings: SettingsService,
@@ -43,55 +43,48 @@ export class MagazineComponent implements OnInit {
         private sanitizer: DomSanitizer,
     ) {
     }
-    
+
     ngOnInit(): void {
         this.initLoading = true;
         this.toggled = false;
         this.getMagazines();
-        
+
     }
 
     getMagazines(): void {
-        console.log("loading magazines");
         this.magazineService.getMagazinePublications()
             .subscribe(
             this.onGetMagazineRes,
             this.logger.error
-            )
+          );
     }
 
     private onGetMagazineRes = (res: PublicationResponse) => {
-        
+
         if (res.errno) {
             this.logger.customErrorHandler(res);
         } else {
             this.max_index = res.meta.total;
             this.meta = res.meta;
             this.magazines = res.objects;
-            console.log("completed");
             this.initLoading = false;
             this.goToMagazine(this.magazines[0]);
         }
-        
     }
 
 
- 
+
     goToMagazine(publication): void {
-        
         this.selectedPublication = publication;
-        
     }
 
     private nextPage(): void {
-        //Maybe useful in the future, keep this now
+        // Maybe useful in the future, keep this now
     }
 
     toggle(): void {
         this.toggled = !(this.toggled);
     }
-
-
 
     private FileDownloadURL(): any {
         return this.sanitizer.bypassSecurityTrustResourceUrl(this.filter(this.selectedPublication) + "?force_download=true&dn_name=" + this.selectedPublication.title);
@@ -101,15 +94,15 @@ export class MagazineComponent implements OnInit {
         return this.sanitizer.bypassSecurityTrustResourceUrl(this.filter(this.selectedPublication));
     }
 
-    private filter(publication: Publication): string{
+    private filter(publication: Publication): string {
 
         let new_full_url: string;
 
         // file store in the upload folder
-        if(publication.doc_url && publication.doc_url.url) {
+        if (publication.doc_url && publication.doc_url.url) {
             publication.doc_url.full_url = this.settings.resource_base() + 'upload/' + publication.doc_url.url;
         } else {
-            //publication.doc_url.full_url = this.settings.resource_base() + 'img/qustion.png';
+            // publication.doc_url.full_url = this.settings.resource_base() + 'img/qustion.png';
         }
 
         // file not store in the upload folder
@@ -118,7 +111,6 @@ export class MagazineComponent implements OnInit {
         } else {
             new_full_url = publication.doc_url.full_url;
         }
-        
         return new_full_url;
     }
 

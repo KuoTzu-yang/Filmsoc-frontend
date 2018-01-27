@@ -22,15 +22,13 @@ export class NewsComponent implements OnInit {
     private meta: NewsMeta;
     public selectedNews: News;
 
-    
     public initLoading: boolean;
     public toggled: boolean;
-   
+
     private max_index: number;
     private next_page: number;
     private page_size: number;
 
-    
     private scrollLoading: boolean;
 
     constructor(
@@ -41,12 +39,11 @@ export class NewsComponent implements OnInit {
     }
 
     getNews(index: number, limit: number): void {
-        
         this.newsService.getNews(index, limit)
             .subscribe(
             this.onGetNewRes,
             this.logger.error
-            )
+          );
     }
 
     private onGetNewRes = (res: NewsResponse) => {

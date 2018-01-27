@@ -1,28 +1,28 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
+
 import { Logger } from '../../logger';
 import { Router } from '@angular/router';
-
 import { SettingsService } from '../../settings';
 
 import { Publication, PublicationMeta, PublicationResponse } from '../publication';
-import { PodcastService } from './podcast.service';
-import { PodcastAnimations } from './podcast.animations';
+import { PamphletService } from './pamphlet.service';
+import { PamphletAnimations } from './pamphlet.animations';
 
 import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
     moduleId: module.id,
-    selector: 'film-publication-podcast',
-    templateUrl: './podcast.component.html',
-    styleUrls: ['./podcast.component.css'],
-    providers: [ PodcastService ],
-    animations: PodcastAnimations,
+    selector: 'film-publication-pamphlet',
+    templateUrl: './pamphlet.component.html',
+    styleUrls: ['./pamphlet.component.css'],
+    providers: [ PamphletService ],
+    animations: PamphletAnimations,
 })
-export class PodcastComponent implements OnInit {
+export class PamphletComponent implements OnInit {
 
-    public podcasts: Publication[];
+    public pamphlets: Publication[];
     public toggled: boolean;
     public initLoading: boolean;
 
@@ -37,7 +37,7 @@ export class PodcastComponent implements OnInit {
 
     constructor(
         private settings: SettingsService,
-        private podcastService: PodcastService,
+        private pamphletService: PamphletService,
         private logger: Logger,
         private router: Router,
         private sanitizer: DomSanitizer,
@@ -47,35 +47,34 @@ export class PodcastComponent implements OnInit {
     ngOnInit(): void {
         this.initLoading = true;
         this.toggled = false;
-        this.getPodcasts();
+        this.getPamphlets();
+
     }
 
-    getPodcasts(): void {
-        this.podcastService.getPodcastPublications()
+    getPamphlets(): void {
+        this.pamphletService.getPamphletPublications()
             .subscribe(
-            this.onGetPodcastRes,
+            this.onGetPamphletRes,
             this.logger.error
           );
     }
 
-    private onGetPodcastRes = (res: PublicationResponse) => {
-
+    private onGetPamphletRes = (res: PublicationResponse) => {
 
         if (res.errno) {
             this.logger.customErrorHandler(res);
         } else {
-
             this.max_index = res.meta.total;
             this.meta = res.meta;
-            this.podcasts = res.objects;
+            this.pamphlets = res.objects;
             this.initLoading = false;
-            this.goToPodcast(this.podcasts[0]);
+            this.goToPamphlet(this.pamphlets[0]);
         }
-
     }
 
-    goToPodcast(publication): void {
 
+
+    goToPamphlet(publication): void {
         this.selectedPublication = publication;
     }
 
@@ -87,7 +86,9 @@ export class PodcastComponent implements OnInit {
         this.toggled = !(this.toggled);
     }
 
-
+    private FileDownloadURL(): any {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(this.filter(this.selectedPublication) + "?force_download=true&dn_name=" + this.selectedPublication.title);
+    }
 
     private FileURL(): any {
         return this.sanitizer.bypassSecurityTrustResourceUrl(this.filter(this.selectedPublication));
@@ -101,7 +102,7 @@ export class PodcastComponent implements OnInit {
         if (publication.doc_url && publication.doc_url.url) {
             publication.doc_url.full_url = this.settings.resource_base() + 'upload/' + publication.doc_url.url;
         } else {
-
+            // publication.doc_url.full_url = this.settings.resource_base() + 'img/qustion.png';
         }
 
         // file not store in the upload folder
@@ -110,7 +111,7 @@ export class PodcastComponent implements OnInit {
         } else {
             new_full_url = publication.doc_url.full_url;
         }
-
         return new_full_url;
     }
+
 }

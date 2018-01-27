@@ -27,8 +27,8 @@ export class ShowService {
     ) { }
 
     getShow(index: number, limit: number): Observable<ShowResponse> {
-        let params = "?limit=" + limit + "&page=" + index;
-        let url = this.settings.api_base() + this.showGetUrl + params;
+        const params = '?limit=' + limit + '&page=' + index;
+        const url = this.settings.api_base() + this.showGetUrl + params;
 
         return this.http.get(url)
             .map(this.extractData)
@@ -59,7 +59,6 @@ export class ShowService {
 
     private extractVoteResponse = (res: Response) => {
         let body = res.json();
-
         return body || {};
     }
 }

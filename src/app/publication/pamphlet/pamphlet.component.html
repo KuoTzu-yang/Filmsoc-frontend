@@ -69,17 +69,17 @@
 
 
     <!--left panel : list-->
-    <div class="magazine-list">
-      <div class="magazine-label" *ngFor="let publication of magazines"
-           (click)="goToMagazine(publication)" [class.selected]="selectedPublication?.id===publication.id"
+    <div class="pamphlet-list">
+      <div class="pamphlet-label" *ngFor="let publication of pamphlets"
+           (click)="goToPamphlet(publication)" [class.selected]="selectedPublication?.id===publication.id"
            [@ticketLabel]="">
-        <div class="magazine-brief-wrapper" align="center">
-          <div class="magazine-title">
+        <div class="pamphlet-brief-wrapper" align="center">
+          <div class="pamphlet-title">
             <p>
               <strong>{{publication.title}}</strong>
             </p>
           </div>
-          <div class="magazine-picture">
+          <div class="pamphlet-picture">
             <img src="{{publication.cover_url.full_url}}" class="img-rounded " />
           </div>
           <div *ngIf="selectedPublication?.id===publication.id">
@@ -100,7 +100,7 @@
   <!--loading completed: right panel-->
   <div #contentWrapper id="content-wrapper"
        [@contentAnimation]="" *ngIf="!initLoading">
-    <div class="row magazine-detail">
+    <div class="row pamphlet-detail">
       <div>
         <button type="button" class="btn btn-default visible-xs visible-sm hidden-md hidden-lg navbar-toggle"
                 (click)="toggle()">
@@ -144,17 +144,17 @@
         </div>
       </div>
     </div>
-  <div class="magazine-list">
-    <div class="magazine-label-phone" *ngFor="let publication of magazines"
-         (click)="goToMagazine(publication)" [class.selected]="selectedPublication?.id===publication.id"
+  <div class="pamphlet-list">
+    <div class="pamphlet-label-phone" *ngFor="let publication of pamphlets"
+         (click)="goToPamphlet(publication)" [class.selected]="selectedPublication?.id===publication.id"
          [@ticketLabel]="">
-      <div class="magazine-brief-wrapper" align="center">
-        <div class="magazine-title">
+      <div class="pamphlet-brief-wrapper" align="center">
+        <div class="pamphlet-title">
           <p>
             <strong>{{publication.title}}</strong>
           </p>
         </div>
-        <div class="magazine-picture">
+        <div class="pamphlet-picture">
           <img src="{{publication.cover_url.full_url}}" class="img-rounded " />
         </div>
         <br />

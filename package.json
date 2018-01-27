@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compile": "ng build -bh http://ihome.ust.hk/test/ --prod"
+    "compile": "ng build -bh http://film.su.ust.hk/ --prod"
   },
   "private": true,
   "dependencies": {

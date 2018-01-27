@@ -76,10 +76,10 @@
               Sign Out
             </button>
             <!-- admin is designed for exco only;  -->
-            <a class="btn btn-default" *ngIf="(userService.isAdmin)" href="http://ihome.ust.hk/~su_film/admin/" clickedable>
+            <a class="btn btn-default" *ngIf="(userService.isAdmin)" href="http://film.su.ust.hk/admin/" clickedable>
               Admin
             </a>
-            <a class="btn btn-default" *ngIf="(userService.isAdmin)" href="http://ihome.ust.hk/~su_film/register/" clickedable>
+            <a class="btn btn-default" *ngIf="(userService.isAdmin)" href="http://film.su.ust.hk/register/" clickedable>
               Register
             </a>
           </span>
@@ -90,8 +90,10 @@
 
   </div> <!-- /.container-fluid -->
 </nav> <!-- the end of the navigation bar -->
+
 <!--   main displayment  default: home -->
 <router-outlet></router-outlet>
+
 <film-notification></film-notification>
 
 
@@ -108,4 +110,3 @@
     </div>
   </div>
 </footer>
-

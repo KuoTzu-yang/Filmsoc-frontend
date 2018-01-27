@@ -47,11 +47,11 @@
     background-color: rgba(128, 128, 128, 0);
   }
 
-.jumbotron {
+.jumbotron-xs {
   position: relative;
   background-image: url('../assets/about.jpg');
   position: relative;
-  height: 350px;
+  height: 300px;
   text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -69,7 +69,7 @@
   cursor: pointer;
 }
 
-  .jumbotron .haze {
+  .jumbotron-xs .haze {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -78,8 +78,14 @@
     background-color: rgba(128, 128, 128, 0);
   }
 
+.jumbotron-xs-patch {
+  position: relative;
+  height: 2em;
+
+}
+
 .about-wrapper {
-  height:1100px;
+  height: 1100px;
 }
 
 

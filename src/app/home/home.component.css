@@ -93,20 +93,34 @@
     box-sizing: border-box;
 }
 
+
 .promo-pic-rfs {
   background-image: url('../assets/Regular_FIlm_Show.png');
   cursor:pointer;
 }
+  .promo-pic-rfs:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+    cursor: pointer;
+  }
 
 .promo-pic-liba {
   background-image: url('../assets/DVD_VCD_Library.png');
   cursor: pointer;
 }
+  .promo-pic-liba:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+    cursor: pointer;
+  }
 
 .promo-pic-fft {
   background-image: url('../assets/Free_Film_Tickects.png');
   cursor: pointer;
 }
+  .promo-pic-fft:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+    cursor: pointer;
+  }
+
 
 
 /* --------------- patch ----------------------*/

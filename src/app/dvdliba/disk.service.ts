@@ -22,15 +22,15 @@ export class DiskService {
   getDisks(index: number, limit: number, type: LIST_TYPE): Observable<DisksResponse> {
     let params: string;
     if (type === LIST_TYPE.NORMAL) {
-        params = "?limit=" + limit + "&page=" + index +"&disk_type=A&disk_type=B&disk_type=C";
+        params = '?limit=' + limit + '&page=' + index + '&disk_type=A&disk_type=B&disk_type=C';
     } else if (type === LIST_TYPE.POPULAR) {
-        params = "?limit=" + limit + "&page=" + index + "&ordering=-borrow_cnt,-id" + "&disk_type=A&disk_type=B&disk_type=C";
+        params = '?limit=' + limit + '&page=' + index + '&ordering=-borrow_cnt,-id' + '&disk_type=A&disk_type=B&disk_type=C';
     } else if (type === LIST_TYPE.RANKED) {
-        params = "?limit=" + limit + "&page=" + index + "&ordering=-rank,-id" + "&disk_type=A&disk_type=B&disk_type=C";
+        params = '?limit=' + limit + '&page=' + index + '&ordering=-rank,-id' + '&disk_type=A&disk_type=B&disk_type=C';
     } else if (type === LIST_TYPE.BD) {
-        params = "?limit=" + limit + "&page=" + index + "&disk_type=C";
+        params = '?limit=' + limit + '&page=' + index + '&disk_type=C';
     } else if (type === LIST_TYPE.DRIVE) {
-        params = "?limit=" + limit + "&page=" + index + "&disk_type=D";
+        params = '?limit=' + limit + '&page=' + index + '&disk_type=D';
     }
 
     let url = this.settings.api_base() + this.diskGetUrl + params;
@@ -44,18 +44,17 @@ export class DiskService {
   extractDisks = (res: Response) => {
     let body = res.json();
     let i: number;
-    for(i = 0; i < body.objects.length; i++) {
+    for (i = 0; i < body.objects.length; i++) {
         body.objects[i] = this.getDiskFullUrl(body.objects[i]);
-        
+
     }
-      
     return body || {};
   }
 
-  random(): Observable<DiskResponse>{
+  random(): Observable<DiskResponse> {
     let params = '?'+new Date().getTime();
     let url = this.settings.api_base() + this.diskRandUrl + params;
-    
+
     return this.http.get(url)
                     .map(this.extractDisk)
                     .catch(this.logger.errorHandler);
@@ -68,7 +67,7 @@ export class DiskService {
   }
 
   getDiskFullUrl(disk: Disk) {
-    if(disk.cover_url && disk.cover_url.url) {
+    if (disk.cover_url && disk.cover_url.url) {
       disk.cover_url.full_url = this.settings.resource_base() + 'upload/' + disk.cover_url.url;
     }else {
       disk.cover_url.full_url = this.settings.resource_base() + 'img/qustion.png';

@@ -29,12 +29,12 @@ export class SiteSettingsService {
              .map(res => res.json())
              .subscribe(
                this.getOnLoad,
-               this.logger.error
+               this.logger.error,
              )
   }
 
   getOnLoad = (res: SiteSettingsResponse) => {
-    if(res.errno) {
+    if (res.errno) {
       this.logger.customErrorHandler(res);
     }else {
       this.siteSettings = res.objects;
@@ -43,8 +43,8 @@ export class SiteSettingsService {
 
   getSettings(key: string) {
     let i: number;
-    for(i = 0; i < this.siteSettings.length; i++){
-      if(this.siteSettings[i].key === key) {
+    for (i = 0; i < this.siteSettings.length; i++) {
+      if (this.siteSettings[i].key === key) {
         return this.siteSettings[i].value;
       }
     }

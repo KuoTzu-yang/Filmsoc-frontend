@@ -16,12 +16,12 @@ export class OneSentenceService {
     ) { }
 
     getOneSentence(): Promise<OneSentence> {
-        let params = "?" + new Date().getTime();
-        let url = this.settings.api_base() + this.oneSentenceGetUrl + params;
+        const params = '?' + new Date().getTime();
+        const url = this.settings.api_base() + this.oneSentenceGetUrl + params;
 
         return this.http.get(url)
             .toPromise()
-            .then(res => { return res.json() })
+            .then( res => { return res.json() })
             .catch(this.handleError);
     }
 

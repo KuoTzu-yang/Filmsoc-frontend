@@ -13,8 +13,8 @@ import { Publication, PublicationMeta, PublicationResponse } from '../publicatio
 
 @Injectable()
 export class MagazineService {
-    private PublicationGetUrl = "publication/"
-    private new_full_url = "default";
+    private PublicationGetUrl = 'publication/';
+    private new_full_url = 'default';
 
 
     constructor(
@@ -25,7 +25,7 @@ export class MagazineService {
 
     getMagazinePublications(): Observable<PublicationResponse> {
 
-        let params = "?pub_type=Magazine";
+        let params = '?pub_type=Magazine';
         let url = this.settings.api_base() + this.PublicationGetUrl + params;
 
         return this.http.get(url)
@@ -45,14 +45,14 @@ export class MagazineService {
 
 
     private getFullUrl(publication) {
-        
+
         if (publication.cover_url && publication.cover_url.url) {
 
             publication.cover_url.full_url = this.settings.resource_base() + 'upload/' + publication.cover_url.url;
         } else {
             publication.cover_url.full_url = this.settings.resource_base() + 'img/qustion.png';
         }
-        
+
         return publication;
     }
 

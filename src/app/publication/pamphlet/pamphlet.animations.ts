@@ -8,7 +8,7 @@
 } from '@angular/core';
 
 
-export const DocumentAnimations = [
+export const PamphletAnimations = [
   trigger('ticketLabel', [
     transition('void => *', [
       style({transform: 'translateX(-100%)',

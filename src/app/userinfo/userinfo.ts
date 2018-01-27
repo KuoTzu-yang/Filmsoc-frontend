@@ -1,7 +1,6 @@
 import { SimpleDisk } from '../dvdliba/disk';
 
 export class UserInfo {
-
     admin?: boolean;
     borrow_history?: SimpleDisk[];
     borrowed?: SimpleDisk[];
@@ -24,8 +23,7 @@ export class UserInfo {
     error?: string;
     mobile?: string;
     pennalized?: boolean;
-
-};
+}
 
 export const MEMBERSHIP_TABLE = {
     Full: 'Full Member',

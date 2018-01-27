@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\app",
+    "\\app\\home",
+    "\\app\\news",
     "\\app\\publication\\magazine",
-    "\\app\\publication\\micro-magazine",
-    "\\app\\rfs"
+    "\\app\\publication\\micro-magazine"
   ],
-  "SelectedNode": "\\app\\rfs\\show.component.css",
+  "SelectedNode": "\\app\\home\\home.component.css",
   "PreviewInSolutionExplorer": false
 }

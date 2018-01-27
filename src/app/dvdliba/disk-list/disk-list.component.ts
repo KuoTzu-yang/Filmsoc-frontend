@@ -36,19 +36,19 @@ export class DiskListComponent implements OnInit {
 
         diskListService.disk$.subscribe(
             this.onGetDisks
-        )
+        );
 
         diskListService.total$.subscribe(
             (num: number) => {
                 this.total = num;
             }
-        )
+        );
 
     }
 
     private onGetDisks = (disks: Disk[]) => {
         this.index = this.diskListService.getIndex();
-        if (!(this.index)){
+        if (!(this.index)) {
             this.index = 1;
         }
 
@@ -85,8 +85,8 @@ export class DiskListComponent implements OnInit {
     }
 
     goToDetail(disk: Disk) {
-        console.log("go to detail");
-        this.router.navigate(['./library',disk.id]);
+        // console.log('go to detail');
+        this.router.navigate(['./library', disk.id]);
     }
 
 }

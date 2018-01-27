@@ -33,8 +33,6 @@ export class DiskDetailService {
     request$ = this.requestSource.asObservable();
 
     sendId(id: number) {
-        console.log("sending ID");
-        
         this.requestSource.next(id);
     }
 
@@ -85,7 +83,7 @@ export class DiskDetailService {
 
     extractDisk = (res: Response): DiskResponse => {
         let body = res.json();
-        
+
         // this line does not work, check what is going on
         body.disk_type_string = DISK_TYPE[body.disk_type];
 

@@ -23,7 +23,7 @@ export class AboutService {
 
 
     getExcoes(): Observable<ExcoResponse> {
-        
+
         let url = this.settings.api_base() + this.ExcoGetUrl ;
 
         return this.http.get(url)
@@ -42,7 +42,6 @@ export class AboutService {
 
     private getFullUrl(exco: Exco) {
         if (exco.img_url && exco.img_url.url) {
-           
             exco.img_url.full_url = this.settings.resource_base() + 'upload/' + exco.img_url.url;
         } else {
             exco.img_url.full_url = this.settings.resource_base() + 'img/qustion.png';
@@ -50,11 +49,8 @@ export class AboutService {
         return exco;
     }
 
-
-
     private handleError(error: any): Promise<any> {
         console.error('Error: ', error);
         return Promise.reject(error.message || error);
     }
 }
-

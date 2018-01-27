@@ -22,13 +22,12 @@ export class Logger {
     handleError(error: any): Promise<any> {
         console.log('Error: ', error);
         return Promise.reject(error.message || error);
-
-        //The Promise.reject(reason) method returns a Promise object that is rejected with the given reason,
-        //which means the state of the Promise object is rejected
+        // The Promise.reject(reason) method returns a Promise object that is rejected with the given reason,
+        // which means the state of the Promise object is rejected
     }
 
     errorHandler(error: Response | any) {
-        //In a real world app, we might use a remote logging infrastructure
+        // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;
         if (error instanceof Response) {
             const body = error.json() || '';
@@ -45,21 +44,21 @@ export class Logger {
         let errno = res.errno,
             error = res.error || 'Connection Failed';
         switch (errno) {
-            case 0: //Client Network Problem
-            case 1: //Format Error
-            case 2: //Authentication Error
-            case 3: //Procedure Error
-                //cr.ui.showNotification(error, 'dismiss');
-                this.noti.show("danger", "Error", error);
+            case 0: // Client Network Problem
+            case 1: // Format Error
+            case 2: // Authentication Error
+            case 3: // Procedure Error
+                // cr.ui.showNotification(error, 'dismiss');
+                this.noti.show('danger', 'Error', error);
                 console.log(error);
                 break;
-            case 404: //Not Found Error
-                //notFoundHandler();
-                console.log("404 not found");
+            case 404: // Not Found Error
+                // notFoundHandler();
+                console.log('404 not found');
                 break;
-            default: //Other Server Error
-                //cr.ui.showNotification('Server: ' + error, 'try again later');
-                this.noti.show("danger", "Error", 'Server: ' + error + ' try again later');
+            default: // Other Server Error
+                // cr.ui.showNotification('Server: ' + error, 'try again later');
+                this.noti.show('danger', 'Error', 'Server: ' + error + 'try again later');
                 console.log('Server: ' + error, 'try again later');
         }
     }
@@ -67,5 +66,4 @@ export class Logger {
     showNotification(type: string, title: string, content: string) {
         this.noti.show(type, title, content);
     }
-
 }

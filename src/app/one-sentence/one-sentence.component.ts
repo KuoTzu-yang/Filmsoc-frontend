@@ -17,14 +17,14 @@ export class OneSentenceComponent implements OnInit {
     private oneSentenceService: OneSentenceService
   ) {
     this.oneSentence = new OneSentence();
-    this.oneSentence.content = "Loading";
-    this.oneSentence.film = "Loading";
+    this.oneSentence.content = 'Loading';
+    this.oneSentence.film = 'Loading';
   }
 
   getOneSentence(): void {
 
     this.oneSentenceService.getOneSentence()
-        .then(res => {this.oneSentence = res});
+        .then( res => {this.oneSentence = res; });
   }
 
   ngOnInit(): void {

@@ -82,6 +82,7 @@
   height: 1em;
 }
 
+
 /*--------------------------wrapper-------------------------------*/
 
 
@@ -113,7 +114,7 @@
 }
 
 #sidebar-wrapper {
-  padding-left: 5px;
+  padding-left:5px;
   z-index: 1000;
   left: 300px;
   width: 0;
@@ -134,8 +135,6 @@
 }
 
 
-
-
 /*---------- phone-mode ----------*/
 .phone-wrapper {
   text-align: center;
@@ -149,33 +148,32 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+.phone-wrapper .button-wrapper {
+  width: 260px;
+  text-align: center;
+  height: 240px;
+}
 
-  .phone-wrapper .button-wrapper {
-    width: 260px;
-    text-align: center;
-    height: 240px;
+  .phone-wrapper .button-wrapper .btn-group-vertical {
+    width: 90%;
   }
 
-    .phone-wrapper .button-wrapper .btn-group-vertical {
-      width: 90%;
-    }
-
-    .phone-wrapper .button-wrapper .button-list {
-      border-left-color: rgba(128, 128, 128, 0.3);
-      border-bottom-color: rgba(128, 128, 128, 0.3);
-      border-top-color: black;
-      border-right-color: rgba(128, 128, 128, 0.3);
-      border-style: solid;
-      /*border-color: rgba(128, 128, 128, 0.3);*/
-      border-width: 2px;
-      background-color: #f1f1f1;
-      width: 250px;
-      height: 200px;
-    }
+  .phone-wrapper .button-wrapper .button-list {
+    border-left-color: rgba(128, 128, 128, 0.3);
+    border-bottom-color: rgba(128, 128, 128, 0.3);
+    border-top-color: black;
+    border-right-color: rgba(128, 128, 128, 0.3);
+    border-style: solid;
+    /*border-color: rgba(128, 128, 128, 0.3);*/
+    border-width: 2px;
+    background-color: #f1f1f1;
+    width: 250px;
+    height: 200px;
+  }
 
 
 
-.micro-magazine-label-phone {
+.pamphlet-label-phone {
   border-left-color: rgba(128, 128, 128, 0.3);
   border-bottom-color: rgba(128, 128, 128, 0.3);
   border-top-color: black;
@@ -207,48 +205,48 @@
   -webkit-transform: translateZ(0) scale(1.0, 1.0);
 }
 
-  .micro-magazine-label-phone:hover {
+  .pamphlet-label-phone:hover {
     height: 300px;
   }
 
-  .micro-magazine-label-phone.selected {
-    border-top-color: #ba4040;
-    height: 300px;
-  }
+.pamphlet-label-phone.selected {
+  border-top-color: #ba4040;
+  height: 300px;
+}
 
 
-  .micro-magazine-label-phone .micro-magazine-brief-wrapper {
-    text-align: center;
-  }
+.pamphlet-label-phone .pamphlet-brief-wrapper {
+  text-align: center;
+}
 
 
-  .micro-magazine-label-phone .micro-magazine-brief-wrapper .micro-magazine-title {
-    font-size: 11.5px;
-    margin-left: -5px;
-    width: 225px;
-    text-align: center;
-  }
+.pamphlet-label-phone .pamphlet-brief-wrapper .pamphlet-title {
+  font-size: 11.5px;
+  margin-left: -5px;
+  width: 225px;
+  text-align: center;
+}
 
-  .micro-magazine-label-phone .micro-magazine-brief-wrapper .micro-magazine-picture img {
-    max-width: 210px;
-    max-height: 200px;
-    border-style: solid;
-    border-width: 2px;
-  }
+.pamphlet-label-phone .pamphlet-brief-wrapper .pamphlet-picture img {
+  max-width: 210px;
+  max-height: 200px;
+  border-style: solid;
+  border-width: 2px;
+}
 
-  .micro-magazine-label-phone .micro-magazine-brief-wrapper {
-    text-align: center;
-  }
+.pamphlet-label-phone .pamphlet-brief-wrapper {
+  text-align: center;
+}
+
 
 /*--------------------------left panel-------------------------------*/
-
 #sidebar-wrapper .button-wrapper {
   width: 260px;
   text-align: center;
   height: 240px;
 }
 
-#sidebar-wrapper .button-wrapper .btn-group-vertical {
+#sidebar-wrapper  .button-wrapper .btn-group-vertical {
   width: 90%;
 }
 
@@ -267,22 +265,23 @@
 
 
 
-.micro-magazine-list {
+.pamphlet-list {
   width: 260px;
   padding-top: 15px;
   padding-bottom: 40px;
   position: relative;
 }
 
-.micro-magazine-label {
+.pamphlet-label {
   border-left-color: rgba(128, 128, 128, 0.3);
   border-bottom-color: rgba(128, 128, 128, 0.3);
   border-top-color: black;
   border-right-color: rgba(128, 128, 128, 0.3);
-  width: 240px;
+
   border-style: solid;
   border-width: 2px;
   height: 250px;
+  width: 240px;
   background-color: #f2f2f2;
   margin-bottom: 15px;
   margin-top: 5px;
@@ -306,34 +305,38 @@
   -webkit-transform: translateZ(0) scale(1.0, 1.0);
 }
 
-.micro-magazine-label:hover {
+.pamphlet-label:hover {
   transform: rotate(-4deg);
   height: 300px;
 }
 
-.micro-magazine-label.selected {
+.pamphlet-label.selected {
   transform: rotate(-4deg);
   border-top-color: #ba4040;
   height: 300px;
 }
 
 
+  .pamphlet-label .pamphlet-brief-wrapper {
+    text-align: center;
+  }
 
-  .micro-magazine-label .micro-magazine-brief-wrapper .micro-magazine-title {
-    font-size: 11px;
+
+  .pamphlet-label .pamphlet-brief-wrapper .pamphlet-title {
+    font-size: 11.5px;
     margin-left: -5px;
     width: 225px;
     text-align: center;
   }
 
-.micro-magazine-label .micro-magazine-brief-wrapper .micro-magazine-picture img {
+.pamphlet-label .pamphlet-brief-wrapper .pamphlet-picture img {
   max-width: 210px;
   max-height: 200px;
   border-style: solid;
   border-width: 2px;
 }
 
-.micro-magazine-label .micro-magazine-brief-wrapper {
+.pamphlet-label .pamphlet-brief-wrapper {
   text-align: center;
 }
 
@@ -357,16 +360,16 @@
   -webkit-transform: translateZ(0) scale(1.0, 1.0);
 }
 
-#content-wrapper .micro-magazine-detail {
-  background-color: #fafafa;
-  border-left-style: solid;
-  border-left-width: 2px;
-  border-left-color: #eee;
-  width: 100%;
-  min-height: 950px;
-}
+  #content-wrapper .pamphlet-detail {
+    background-color: #fafafa;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: #eee;
+    width: 100%;
+    min-height: 950px;
+  }
 
-#content-wrapper .micro-magazine-detail h1 {
+#content-wrapper .pamphlet-detail h1 {
   text-align: center;
   margin-top: 10px;
 }
@@ -387,6 +390,7 @@
   margin-right: -300px;
   width: 100%;
 }
+
 
 
 
@@ -464,7 +468,6 @@
     padding-left: 50px;
   }
 }
-
 
 p, h5, h4, h3, h2, h1 {
   font-family: "Yu Gothic", SimHei;

@@ -20,7 +20,7 @@ export class DocumentService {
     ) { }
 
     getDocuments(): Observable<DocumentResponse> {
-        
+
         let url = this.settings.api_base() + this.DocumentGetUrl;
 
         return this.http.get(url)
@@ -38,16 +38,15 @@ export class DocumentService {
     }
 
     private getFullUrl(document) {
-        
+
         if (document.doc_url && document.doc_url.url) {
 
             document.doc_url.full_url = this.settings.resource_base() + 'upload/' + document.doc_url.url;
         } else {
             document.doc_url.full_url = this.settings.resource_base() + 'img/qustion.png';
         }
-        
+
         return document;
     }
-
 
 }

@@ -11,7 +11,7 @@ import { RouterService } from '../util/router.service';
     selector: 'film-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
-    
+
 })
 export class HomeComponent implements OnInit {
 
@@ -25,8 +25,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        
+
     }
 
-    
 }

@@ -19,7 +19,7 @@ import '../../rxjs-operators';
 })
 export class DiskSearchComponent implements OnInit {
 
-    public disks: Observable<Disk[]>
+    public disks: Observable<Disk[]>;
     private searchTerms = new Subject<string>();
     private searchLimit = 10;
 
@@ -32,16 +32,14 @@ export class DiskSearchComponent implements OnInit {
 
     search(term: string): void {
         this.searchTerms.next(term);
-        
     }
 
     ngOnInit(): void {
-        //console.log("checked");
         this.disks = this.searchTerms
             .debounceTime(200)
             .distinctUntilChanged()
             .switchMap(term =>
-                term ? this.diskSearchService.search(term, "default", this.searchLimit)
+                term ? this.diskSearchService.search(term, 'default', this.searchLimit)
                     : Observable.of<Disk[]>([])
             )
             .catch(error => {
@@ -50,5 +48,4 @@ export class DiskSearchComponent implements OnInit {
             });
     }
 
-    
 }

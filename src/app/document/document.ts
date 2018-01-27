@@ -4,7 +4,7 @@ export class Document {
     doc_url?: File;
     create_log: {
         created_at: string;
-    }
+    };
     id: number;
     title: string;
 }
@@ -24,4 +24,3 @@ export class DocumentResponse {
     objects: Document[];
 
 }
-

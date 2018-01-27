@@ -77,6 +77,11 @@
     background-color: rgba(128, 128, 128, 0);
   }
 
+.jumbotron-xs-patch {
+  position: relative;
+  height: 1em;
+}
+
 
 /*--------------------------wrapper-------------------------------*/
 

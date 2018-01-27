@@ -14,7 +14,7 @@ export class Show {
     vote_cnt_1: number;
     vote_cnt_2: number;
     vote_cnt_3: number;
-};
+}
 
 export class ShowMeta {
     model: string;

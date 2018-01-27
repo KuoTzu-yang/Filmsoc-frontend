@@ -1,6 +1,6 @@
 ﻿.footer {
   background-color: #eee;
- 
+
 }
 
 /* for user info -------------------------------------------------*/
@@ -29,7 +29,6 @@
 
 
 /*----------------- alter(patch) the default bootstrap----------------- */
-
 p, h4, h3, h1 {
   font-family: "Yu Gothic", SimHei;
 }
@@ -71,16 +70,3 @@ p, h4, h3, h1 {
 .navbar-right {
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

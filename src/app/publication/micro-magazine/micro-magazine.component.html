@@ -29,6 +29,8 @@
   <div class="haze">
   </div>
 </div>
+<div class="jumbotron-xs-patch hidden-sm hidden-md hidden-lg">
+</div>
 
 
 
@@ -60,7 +62,9 @@
           <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/micro-magazine">
             MicroMagazine
           </button>
-        
+          <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/pamphlet">
+            Pamphlet
+          </button>
         </div>
       </div>
     </div>
@@ -79,6 +83,12 @@
           </div>
           <div class="micro-magazine-picture">
             <img src="{{publication.cover_url.full_url}}" class="img-rounded " />
+          </div>
+          <div *ngIf="selectedPublication?.id===publication.id">
+            <p>
+              <br/>
+              <a [href]="FileURL()" alt="View in new window">View in new window</a>
+            </p>
           </div>
         </div>
       </div>
@@ -131,6 +141,9 @@
         </button>
         <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/micro-magazine">
           MicroMagazine
+        </button>
+        <button class="library-button btn  btn-lg" routerLinkActive="active" routerLink="/pamphlet">
+          Pamphlet
         </button>
       </div>
     </div>

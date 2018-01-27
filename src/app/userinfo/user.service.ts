@@ -24,15 +24,15 @@ export class UserService {
         private location: Location,
     ) {
         this.user = {};
-        this.user.full_name = "Guest";
+        this.user.full_name = 'Guest';
         this.isLogin = false;
         this.isMember = false;
         this.isAdmin = false;
     }
 
     getCurrentUser(): Promise<any> {
-        let params = "/?" + new Date().getTime();
-        let url = this.settings.api_base() + this.currentUserUrl + params;
+        const params = '/?' + new Date().getTime();
+        const url = this.settings.api_base() + this.currentUserUrl + params;
 
         return this.http.get(url)
             .toPromise()
@@ -42,7 +42,6 @@ export class UserService {
                 this.isLogin = !(this.user.itsc === undefined);
                 this.isMember = !(this.user.id === undefined);
                 this.isAdmin = this.user.admin;
-                //console.log(this.user);
             }
             )
             .catch(this.logger.handleError);
@@ -59,9 +58,7 @@ export class UserService {
     logout(): void {
         if (!(this.isLogin)) { return; }
         let next = this.location.path(true);
-        //console.log(next);
-        let url = this.settings.logout_url() + (next ? "?next=" + next : "");
+        let url = this.settings.logout_url() + (next ? '?next=' + next : '');
         location.href = url;
     }
-
 }

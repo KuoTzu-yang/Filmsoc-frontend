@@ -30,6 +30,7 @@
     </div><!--content-->
   </div><!--dialog-->
 </div><!--modal-->
+
 <!-------Jumbotron & Title ------->
 <div class="title">
   <div class="container">
@@ -59,6 +60,8 @@
     <div class="jumbotron-xs hidden-sm hidden-md hidden-lg">
       <div class="haze">
       </div>
+    </div>
+    <div class="jumbotron-xs-patch hidden-sm hidden-md hidden-lg">
     </div>
 
     <div *ngIf="afterClick">
@@ -176,17 +179,10 @@
           </p>
         </div>
         <div class="hidden-lg hidden-md hidden-sm col-xs-6 btn-detail">
-          <button type="button" class="btn" (click)="goToExco(exco)" data-toggle="modal" data-target="#exco_modal">Detail</button>
+          <button type="button" class="btn btn-md btn-default" (click)="goToExco(exco)" data-toggle="modal" data-target="#exco_modal">Detail</button>
         </div>
       </div>
     </div>
   </div>
 
 </div>
-
-
-
-
-
-
-

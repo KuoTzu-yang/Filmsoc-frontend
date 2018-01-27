@@ -57,6 +57,12 @@
             <p>
               <strong>{{document.title}}</strong>
             </p>
+            <div *ngIf="selectedDocument?.id===document.id">
+              <p>
+                <br/>
+                <a [href]="FileURL()" alt="View in new window">View in new window</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

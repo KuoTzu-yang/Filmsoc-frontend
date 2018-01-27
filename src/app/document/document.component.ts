@@ -23,7 +23,7 @@ export class DocumentComponent implements OnInit {
     public documents: Document[];
     public toggled: boolean;
     public initLoading: boolean;
-    
+
     private meta: DocumentMeta;
 
     private max_index: number;
@@ -31,7 +31,6 @@ export class DocumentComponent implements OnInit {
     private page_size: number;
 
     public selectedDocument: Document;
-    
 
     constructor(
         private documentService: DocumentService,
@@ -40,7 +39,7 @@ export class DocumentComponent implements OnInit {
         private sanitizer: DomSanitizer,
     ) {
     }
-    
+
     ngOnInit(): void {
         this.initLoading = true;
         this.toggled = false;
@@ -48,40 +47,34 @@ export class DocumentComponent implements OnInit {
     }
 
     getDocuments(): void {
-       
-
         this.documentService.getDocuments()
             .subscribe(
             this.onGetDocumentRes,
             this.logger.error
-            )
+          );
     }
 
     private onGetDocumentRes = (res: DocumentResponse) => {
-       
 
         if (res.errno) {
             this.logger.customErrorHandler(res);
         } else {
-            
             this.max_index = res.meta.total;
             this.meta = res.meta;
             this.documents = res.objects;
             this.initLoading = false;
             this.selectedDocument = this.documents[0];
         }
-        
+
     }
 
 
- 
     goToDocument(document): void {
-        
         this.selectedDocument = document;
     }
 
     private nextPage(): void {
-  
+
     }
 
     toggle(): void {
@@ -93,7 +86,7 @@ export class DocumentComponent implements OnInit {
     }
 
     private FileDownloadURL(): any {
-        return this.sanitizer.bypassSecurityTrustResourceUrl(this.selectedDocument.doc_url.full_url + "?force_download=true&dn_name=" + this.selectedDocument.title);
+        return this.sanitizer.bypassSecurityTrustResourceUrl(this.selectedDocument.doc_url.full_url + '?force_download=true&dn_name=' + this.selectedDocument.title);
     }
 
 }

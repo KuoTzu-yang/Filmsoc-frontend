@@ -13,8 +13,8 @@ import { File } from '../../dvdliba/file';
 
 @Injectable()
 export class PodcastService {
-    private PublicationGetUrl = "publication/"
-    private new_full_url = "default";
+    private PublicationGetUrl = 'publication/';
+    private new_full_url = 'default';
 
     constructor(
         private http: Http,
@@ -24,7 +24,7 @@ export class PodcastService {
 
     getPodcastPublications(): Observable<PublicationResponse> {
 
-        let params = "?pub_type=Podcast";
+        let params = '?pub_type=Podcast';
 
         let url = this.settings.api_base() + this.PublicationGetUrl + params;
 
@@ -45,7 +45,7 @@ export class PodcastService {
 
 
     private getFullUrl(publication) {
-        
+
         if (publication.cover_url && publication.cover_url.url) {
             publication.cover_url.full_url = this.settings.resource_base() + 'upload/' + publication.cover_url.url;
         } else {
@@ -55,5 +55,4 @@ export class PodcastService {
         return publication;
     }
 
-   
 }

@@ -10,7 +10,10 @@
 
       <div class="modal-body">
         <p>
-          Please kindly note that we will charge 50HKD for DVD/VCD, 100HKD for Blu-ray per disk as deposit when you check out the disk. The deposit will be refunded when you return the disk in good condition.
+          Please kindly note that we will charge 50HKD for DVD/VCD,
+          100HKD for Blu-ray, 150HKD for normal drive, 200HKD for Blu-ray drive per disk
+          as deposit when you check out the disk.
+          The deposit will be refunded when you return the disk in good condition.
         </p>
         <hr />
         <h4>Retrive at Counter</h4>
@@ -19,6 +22,7 @@
           <strong>Two Days</strong>
         </p>
         <button class="btn btn-primary" (click)="reserveCounter()" data-dismiss="modal">Reserve</button>
+
         <hr />
         <h4>Or Deliver the Disk</h4>
         <form (ngSubmit)="reserveDelivery()" #reservationForm="ngForm">
@@ -96,8 +100,8 @@
 
 
 
-<div class="container disk-detail-wrapper">
-  <button class="btn btn-info back-button" (click)="router.navigate(['library'])">Go Back</button>
+<div class="container disk-detail-wrapper" >
+  <button *ngIf="!isDrive()" class="btn btn-info back-button" (click)="router.navigate(['library'])">Go Back</button>
   <div class="row disk-title">
     <h2>
       {{disk?.title_en}}&nbsp;/&nbsp;{{disk?.title_ch}}
@@ -114,87 +118,89 @@
       <dl>
         <dt>
           <p>
-            Director
+            {{isDrive()?'Owner':'Director'}}
           </p>
         </dt>
         <dd>
           <p>
             {{disk?.director_en?disk.director_en:"Unknown"}}
-            <span *ngIf="disk?.director_ch">/{{disk?.director_ch}}</span>
+            <span *ngIf="disk?.director_ch"> / {{disk?.director_ch}}</span>
           </p>
         </dd>
-        <dt>
-          <p>
-            Stars
-          </p>
-        </dt>
-        <dd>
-          <p>
-            <span *ngFor="let actor of disk?.actors; let i=index">{{actor}}<span *ngIf="i<disk?.actors.length-1">,</span></span>
-            <span *ngIf="disk?.actors.length<=0">Unknown</span>
-          </p>
-        </dd>
-        <dt>
-          <p>
-            Categroy
-          </p>
-        </dt>
-        <dd>
-          <p>
-            {{disk?.category?disk.category:"Unknown"}}
-          </p>
-        </dd>
-        <dt>
-          <p>
-            Tags
-          </p>
-        </dt>
-        <dd>
-          <p>
-            <span *ngFor="let tag of disk?.tags">{{tag}}, </span>
-          </p>
-        </dd>
-        <dt>
-          <p>
-            Length
-          </p>
-        </dt>
-        <dd>
-          <p>
-            {{disk?.length?disk.length:"Unknown"}} minutes
-          </p>
-        </dd>
-        <dt>
-          <p>
-            Call Number
-          </p>
-        </dt>
-        <dd>
-          <p>
-            {{disk?.disk_type}}{{disk?.id}}
-          </p>
-        </dd>
-        <dt>
-          <p>
-            Disk Type
-          </p>
-        </dt>
-        <dd>
-          <p *ngIf="disk?.disk_type">
-            {{DISK_TYPE[disk?.disk_type]}}
-          </p>
-        </dd>
-        <dt>
-          <p>
-            Borrowed
-          </p>
-        </dt>
-        <dd>
-          <p>
-            {{disk?.borrow_cnt}} time
-            <span *ngIf="disk?.borrow_cnt>1">s</span>
-          </p>
-        </dd>
+        <div  *ngIf="!isDrive()">
+          <dt>
+            <p>
+              Stars
+            </p>
+          </dt>
+          <dd>
+            <p>
+              <span *ngFor="let actor of disk?.actors; let i=index">{{actor}}<span *ngIf="i<disk?.actors.length-1">, </span></span>
+              <span *ngIf="disk?.actors.length<=0">Unknown</span>
+            </p>
+          </dd>
+          <dt>
+            <p>
+              Categroy
+            </p>
+          </dt>
+          <dd>
+            <p>
+              {{disk?.category?disk.category:"Unknown"}}
+            </p>
+          </dd>
+          <dt>
+            <p>
+              Tags
+            </p>
+          </dt>
+          <dd>
+            <p>
+              <span *ngFor="let tag of disk?.tags">{{tag}}, </span>
+            </p>
+          </dd>
+          <dt>
+            <p>
+              Length
+            </p>
+          </dt>
+          <dd>
+            <p>
+              {{disk?.length?disk.length:"Unknown"}} minutes
+            </p>
+          </dd>
+          <dt>
+            <p>
+              Call Number
+            </p>
+          </dt>
+          <dd>
+            <p>
+              {{disk?.disk_type}}{{disk?.id}}
+            </p>
+          </dd>
+          <dt>
+            <p>
+              Disk Type
+            </p>
+          </dt>
+          <dd>
+            <p *ngIf="disk?.disk_type">
+              {{DISK_TYPE[disk?.disk_type]}}
+            </p>
+          </dd>
+          <dt>
+            <p>
+              Borrowed
+            </p>
+          </dt>
+          <dd>
+            <p>
+              {{disk?.borrow_cnt}} time
+              <span *ngIf="disk?.borrow_cnt>1">s</span>
+            </p>
+          </dd>
+        </div>
         <dt>
           <p>
             Disk State
@@ -206,11 +212,11 @@
           </p>
         </dd>
       </dl>
-      <div class="rate-wrapper">
+      <div class="rate-wrapper" *ngIf="!isDrive()">
         <button class="btn btn-success" (click)="rateUp()"><span class="glyphicon glyphicon-thumbs-up"></span>  {{rate?.ups}}</button>
         <button class="btn btn-danger" (click)="rateDown()"><span class="glyphicon glyphicon-thumbs-down"></span>  {{rate?.downs}}</button>
       </div>
-      <div class="reserve-wrapper">
+      <div class="reserve-wrapper" *ngIf="!isDrive()">
         <button class="btn btn-info reserve-button"
                 *ngIf="(!(user.user?.id&&disk?.hold_by?.id===user.user?.id)) && (user.isMember && disk?.avail_type ==='Available')"
                 data-toggle="modal" data-target="#reservationModal">
@@ -226,7 +232,7 @@
       </div>
     </div>
   </div>
-  <div class="row disk-plot">
+  <div class="row disk-plot" *ngIf="!isDrive()">
     <div class="col-xs-6">
       <p>
         {{disk?.desc_en}}
@@ -236,7 +242,7 @@
       {{disk?.desc_ch}}
     </div>
   </div>
-  <div class="review-wrapper">
+  <div class="review-wrapper" *ngIf="!isDrive()">
     <div class="row">
       <span class="h3">Disk Deviews</span>
     </div>
@@ -264,5 +270,15 @@
         <button class="btn btn-success" (click)="submitReview()">Submit</button>
       </div>
     </div>
+  </div>
+  <div *ngIf="isDrive()">
+    <hr />
+    <h5>
+      <br />
+      <strong>
+        Members can view the status of our drives.<br />
+        However, reservation and renewal of drives are not allowed online.
+      </strong>
+    </h5>
   </div>
 </div>

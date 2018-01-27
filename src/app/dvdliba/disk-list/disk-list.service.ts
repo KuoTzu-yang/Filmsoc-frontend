@@ -20,7 +20,7 @@ export class DiskListService {
     }
 
     updateTotal(total: number) {
-        this.total = total
+        this.total = total;
         this.totalSource.next(total);
     }
 
@@ -36,4 +36,5 @@ export class DiskListService {
     getTotal(): number {
         return this.total;
     }
+
 }

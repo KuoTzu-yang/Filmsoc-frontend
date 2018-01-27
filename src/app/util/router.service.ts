@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class RouterService {
-    
     constructor(
         private router: Router,
     ) { }

@@ -25,7 +25,7 @@ export class TicketComponent implements OnInit {
   private max_index: number;
   private next_page: number;
   private page_size: number;
-  
+
   private selectedTicket: Ticket;
   private scrollLoading: boolean;
 
@@ -35,16 +35,16 @@ export class TicketComponent implements OnInit {
     private user: UserService
   ) {}
 
-  getTickets(index: number, limit: number) : void {
+  getTickets(index: number, limit: number): void {
     this.ticketService.getTickets(index, limit)
                       .subscribe(
                         this.getTicketsOnLoad,
                         this.logger.error
-                      )
+                      );
   }
 
   getTicketsOnLoad = (res: TicketResponse) => {
-    if(res.errno) {
+    if (res.errno) {
       this.logger.customErrorHandler(res);
     }else {
       this.max_index = res.meta.total;
@@ -53,17 +53,17 @@ export class TicketComponent implements OnInit {
       this.initLoading = false;
       this.scrollLoading = false;
     }
-    if(this.next_page===2) {
+    if (this.next_page===2) {
       this.selectedTicket = this.tickets[0];
     }
   }
 
   nextPage(): void {
-    //console.log('getting next page!');
-    if(this.next_page > this.max_index) {
+    // console.log('getting next page!');
+    if (this.next_page > this.max_index) {
       return;
     }else {
-      if(this.next_page>1) {
+      if (this.next_page > 1) {
         this.scrollLoading = true;
       }
       this.getTickets(this.next_page, this.page_size);
@@ -96,11 +96,11 @@ export class TicketComponent implements OnInit {
                       );
   }
 
-  private onApplyRes=(res: BaseResponse) => {
-    if(res.errno) {
+  private onApplyRes = (res: BaseResponse) => {
+    if (res.errno) {
       this.logger.customErrorHandler(res);
-    }else {
-      this.logger.showNotification('success', "SUCCESS", "Ticket(s) Applied!");
+    } else {
+      this.logger.showNotification('success', 'SUCCESS', 'Ticket(s) Applied!');
 
     }
   }

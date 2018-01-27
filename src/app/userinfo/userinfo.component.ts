@@ -10,7 +10,7 @@ import { SimpleDisk } from '../dvdliba/disk';
 @Component({
   moduleId: module.id,
   selector: 'film-userinfo',
-  templateUrl:'./userinfo.component.html',
+  templateUrl: './userinfo.component.html',
   styleUrls: ['./userinfo.component.css']
 })
 
@@ -27,7 +27,7 @@ export class UserinfoComponent implements OnInit  {
     private router: Router,
   ) {}
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.user = this.userService.user;
     this.MEMBERSHIP_TABLE = MEMBERSHIP_TABLE;
     this.user_borrow = this.user.borrowed;

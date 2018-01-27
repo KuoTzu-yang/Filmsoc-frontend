@@ -60,7 +60,6 @@ export class TicketService {
     }
 
     extractApplyRes = (res: Response) => {
-        console.log("Get Response");
         let body = res.json();
         return body || {};
     }

@@ -18,7 +18,6 @@ import { ShowAnimations } from './show.animations';
     templateUrl: './show.component.html',
     styleUrls: ['./show.component.css'],
     animations: ShowAnimations,
-  
 })
 
 export class ShowComponent implements OnInit, AfterContentInit {
@@ -49,7 +48,7 @@ export class ShowComponent implements OnInit, AfterContentInit {
             .subscribe(
             this.onShowRes,
             this.logger.error
-            )
+          );
     }
 
     onShowRes = (showRes: ShowResponse) => {
@@ -61,7 +60,6 @@ export class ShowComponent implements OnInit, AfterContentInit {
             this.getWinnerShow();
             this.totalVotes = this.show.vote_cnt_1 + this.show.vote_cnt_2 + this.show.vote_cnt_3;
             this.initLoading = false;
-            
         }
     }
 
@@ -94,7 +92,7 @@ export class ShowComponent implements OnInit, AfterContentInit {
             .subscribe(
             this.onVoteRes,
             this.logger.error
-            )
+          );
     }
 
     onVoteRes = (res: any) => {

@@ -11,7 +11,7 @@ import '../rxjs-operators';
 
 @Injectable()
 export class NewsService {
-    private newsGetUrl = "news/"
+    private newsGetUrl = 'news/';
 
     constructor(
         private http: Http,

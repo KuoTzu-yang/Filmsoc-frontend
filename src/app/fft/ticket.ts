@@ -23,7 +23,7 @@ export class Ticket {
     title_ch: string;
     title_en: string;
     venue: string;
-};
+}
 
 export class TicketMeta {
     model: string;

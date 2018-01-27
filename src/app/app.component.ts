@@ -9,22 +9,17 @@ import { RouterService } from './util/router.service';
 @Component({
     moduleId: module.id,
     selector: 'film-app',
-    templateUrl:'./app.component.html',  
+    templateUrl: './app.component.html',
     styleUrls: ['./app.component.css', '../scrollbar.css', '../loaders.min.css'],
-   
 })
 export class AppComponent {
-
-
     constructor(
         public userService: UserService,
         public routerService: RouterService,
         private settings: SettingsService,
         private router: Router,
     ) {
-        userService.getCurrentUser()
+        userService.getCurrentUser();
     }
-    
-    title = "Film Society, HKUSTSU";
+    title = 'Film Society, HKUSTSU';
 }
-    

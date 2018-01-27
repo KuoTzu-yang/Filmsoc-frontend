@@ -7,7 +7,7 @@ export class Publication {
     pub_type: string;
     create_log: {
         created_at: string;
-    }
+    };
     id: number;
     title: string;
 }
@@ -27,4 +27,3 @@ export class PublicationResponse {
     objects: Publication[];
 
 }
-

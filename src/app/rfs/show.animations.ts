@@ -9,11 +9,11 @@
 
 export const ShowAnimations = [
     trigger('mainAnimation', [
-        transition("void => *", [
+        transition('void => *', [
             style({ transform: 'translateX(-100%)', opacity: 0 }),
             animate('400ms ease-out')
         ]),
-        transition("* => void", [
+        transition('* => void', [
             animate('400ms ease-in', style({
                 transform: 'translateX(100%)',
                 opacity: 0
@@ -21,11 +21,11 @@ export const ShowAnimations = [
         ])
     ]),
     trigger('routeAnimation', [
-        transition("* => void", [
+        transition('* => void', [
             animate('400ms ease-in', style({
                 transform: 'translateX(100%)',
                 opacity: 0
             }))
         ])
     ])
-]
+];

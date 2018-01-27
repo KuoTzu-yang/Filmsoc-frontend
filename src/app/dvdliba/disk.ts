@@ -30,8 +30,8 @@ export class Disk {
     user_held: boolean;
 
     disk_type_string?: string;
-};
- 
+}
+
 
 
 export class DiskMeta {
@@ -72,4 +72,4 @@ export enum LIST_TYPE {
     POPULAR,
     BD,
     DRIVE
-}
+  }

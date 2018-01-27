@@ -44,19 +44,19 @@ export class DiskComponent implements OnInit {
     ) {
         diskListService.index$.subscribe(
             this.getPageOrHttp
-        )
+        );
         diskDetailService.loading$.subscribe(
             (bool: boolean) => {
                 this.contentLoading = bool;
             }
-        )
+        );
         diskDetailService.request$.subscribe(
             this.sendDisk
-        )
+        );
     }
 
     private sendDisk = (id: number): void => {
-        console.log("getting ID");
+        // console.log('getting ID');
         this.diskDetailService.sendDisk(this.searchForDisk(id));
     }
 
@@ -86,7 +86,7 @@ export class DiskComponent implements OnInit {
             .subscribe(
             this.getDisksRes,
             this.logger.error,
-        )
+        );
     }
 
     getDisksRes = (diskRes: DisksResponse) => {
@@ -110,7 +110,6 @@ export class DiskComponent implements OnInit {
     }
 
     goToDetail(disk: Disk): void {
-        console.log("go to detail");
         this.router.navigate(['/detail', disk.id]);
     }
 
@@ -130,10 +129,10 @@ export class DiskComponent implements OnInit {
         this.diskService.random()
             .subscribe(
             (res: DiskResponse) => {
-                this.router.navigate(['/library', res.id])
+                this.router.navigate(['/library', res.id]);
             },
             this.logger.error
-            )
+          );
     }
 
     normal(): void {

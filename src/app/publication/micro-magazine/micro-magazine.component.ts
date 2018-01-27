@@ -51,13 +51,11 @@ export class MicroMagazineComponent implements OnInit {
     }
 
     getMicroMagazines(): void {
-
-        console.log("loading micro magazines");
         this.microMagazineService.getMicroMagazinePublications()
             .subscribe(
             this.onGetMicroMagazineRes,
             this.logger.error
-            )
+          );
     }
 
     private onGetMicroMagazineRes = (res: PublicationResponse) => {
@@ -68,7 +66,6 @@ export class MicroMagazineComponent implements OnInit {
             this.max_index = res.meta.total;
             this.meta = res.meta;
             this.microMagazines = res.objects;
-            console.log("completed");
             this.initLoading = false;
             this.goToMicroMagazine(this.microMagazines[0]);
         }
@@ -82,7 +79,7 @@ export class MicroMagazineComponent implements OnInit {
     }
 
     private nextPage(): void {
-        //Maybe useful in the future, keep this now
+        // Maybe useful in the future, keep this now
     }
 
     toggle(): void {
@@ -105,7 +102,7 @@ export class MicroMagazineComponent implements OnInit {
         if (publication.doc_url && publication.doc_url.url) {
             publication.doc_url.full_url = this.settings.resource_base() + 'upload/' + publication.doc_url.url;
         } else {
-            
+          // put some default picture or file to handle the situation if the searched file and picture is not found.
         }
 
         // file not store in the upload folder
@@ -114,8 +111,7 @@ export class MicroMagazineComponent implements OnInit {
         } else {
             new_full_url = publication.doc_url.full_url;
         }
-        
+
         return new_full_url;
     }
-
 }

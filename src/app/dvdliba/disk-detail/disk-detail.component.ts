@@ -46,14 +46,14 @@ export class DiskDetailComponent implements OnInit {
         private settings: SettingsService,
         private route: ActivatedRoute,
         public router: Router,
-    ) { 
+    ) {
         this.DISK_TYPE = DISK_TYPE;
         this.HALL_LIST = HALL_LIST;
         this.form = new ReservationForm('Hall');
         this.diskDetailService.disk$.subscribe(this.getDiskOrHttp);
     }
 
- 
+
 
     private getDiskOrHttp = (disk: Disk) => {
         if (disk) {
@@ -83,7 +83,7 @@ export class DiskDetailComponent implements OnInit {
         this.diskDetailService.updateLoading(true);
         this.route.params
             .subscribe(this.getDiskInfo);
-        
+
 
     }
 
@@ -96,7 +96,7 @@ export class DiskDetailComponent implements OnInit {
 
         this.diskDetailService.getDiskRate(this.id)
             .subscribe(this.onGetRate);
-        
+
     }
 
     onGetReview = (res: DiskReviewResponse): void => {
@@ -164,13 +164,13 @@ export class DiskDetailComponent implements OnInit {
             this.logger.customErrorHandler(res);
         } else {
             this.disk = res;
-            this.logger.showNotification('success', "Success", "Renewal succeed!")
+            this.logger.showNotification('success', 'Success', 'Renewal succeed!');
         }
     }
 
     submitReview(): void {
         let review = this.newReview;
-        this.newReview = "";
+        this.newReview = '';
         this.diskDetailService.postDiskReview(this.id, review)
             .subscribe(this.onPostReview);
     }
@@ -179,13 +179,15 @@ export class DiskDetailComponent implements OnInit {
         if (res.errno) {
             this.logger.customErrorHandler(res);
         } else {
-            this.logger.showNotification('success', "Success", "Review Recorded!");
+            this.logger.showNotification('success', 'Success', 'Review Recorded!');
             this.reviewLoading = true;
             this.diskDetailService.getDiskReview(this.id)
                 .subscribe(this.onGetReview);
         }
     }
 
+    isDrive(): boolean {
+      return this.disk.disk_type === 'D';
+    }
 
-    
 }

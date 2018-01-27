@@ -38,7 +38,7 @@ export class NotificationComponent {
             'alert-info': this.currentNotification.type === 'info',
             'alert-warning': this.currentNotification.type === 'warning',
             'alert-danger': this.currentNotification.type === 'danger',
-        }
+        };
 
         return classes;
     }

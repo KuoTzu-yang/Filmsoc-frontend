@@ -1,6 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
+
 import { SettingsService } from '../../settings';
 import { Logger } from '../../logger';
 
@@ -11,7 +12,7 @@ import { File } from '../../dvdliba/file';
 import { Publication, PublicationMeta, PublicationResponse } from '../publication';
 
 @Injectable()
-export class MicroMagazineService {
+export class PamphletService {
     private PublicationGetUrl = 'publication/';
     private new_full_url = 'default';
 
@@ -22,9 +23,9 @@ export class MicroMagazineService {
         private settings: SettingsService
     ) { }
 
-    getMicroMagazinePublications(): Observable<PublicationResponse> {
+    getPamphletPublications(): Observable<PublicationResponse> {
 
-        let params = '?pub_type=MicroMagazine';
+        let params = '?pub_type=Pamphlet';
         let url = this.settings.api_base() + this.PublicationGetUrl + params;
 
         return this.http.get(url)
@@ -44,7 +45,6 @@ export class MicroMagazineService {
 
 
     private getFullUrl(publication) {
-
 
         if (publication.cover_url && publication.cover_url.url) {
 
