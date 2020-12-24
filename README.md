@@ -1,7 +1,7 @@
 # Disclaimer 
 
 This frontend is written based on Angular2 framework, and it is no longer maintained and updated by tkuo. <br/>
-If you encounter problems in the website of file society, HKUST, please directly contact current film society committee. 
+If you encounter problems in the website of file society (HKUST), please directly contact current film society committee. 
 
 ## Build
 
